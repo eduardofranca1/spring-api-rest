@@ -1,7 +1,7 @@
 package com.avaliacaobackend.api.controllers;
 
 import com.avaliacaobackend.domain.entities.Person;
-import com.avaliacaobackend.domain.servicies.PersonService;
+import com.avaliacaobackend.domain.services.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,4 +34,5 @@ public class PersonController {
 
         return ResponseEntity.ok(person);
     }
+
 }
