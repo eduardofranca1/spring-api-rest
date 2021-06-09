@@ -1,6 +1,6 @@
 package com.avaliacaobackend.domain.services;
 
-import com.avaliacaobackend.domain.entities.Person;
+import com.avaliacaobackend.domain.model.Person;
 import com.avaliacaobackend.domain.exception.BusinessException;
 import com.avaliacaobackend.domain.exception.ResourceNotFoundException;
 import com.avaliacaobackend.domain.repositories.PersonRepository;
@@ -21,7 +21,7 @@ public class PersonService {
 
     public Person read(Long personId) {
         return personRepository.findById(personId)
-                .orElseThrow(() -> new BusinessException("Wrong person"));
+                .orElseThrow(() -> new ResourceNotFoundException("Person did not found."));
     }
 
     public Person create(Person person) { return personRepository.save(person); }
@@ -29,10 +29,19 @@ public class PersonService {
     public Person update(Person person) {
 
         if (!personRepository.existsById(person.getId())) {
-            throw new ResourceNotFoundException("Person did not found.");
+            throw new ResourceNotFoundException("Wrong person code, please try again.");
         }
 
         return personRepository.save(person);
+    }
+
+    public void delete(Long personId) {
+
+        if (!personRepository.existsById(personId)){
+            throw new BusinessException("Wrong person code, please try again.");
+        }
+
+        personRepository.deleteById(personId);
     }
 
 }

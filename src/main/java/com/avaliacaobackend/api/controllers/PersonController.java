@@ -1,6 +1,6 @@
 package com.avaliacaobackend.api.controllers;
 
-import com.avaliacaobackend.domain.entities.Person;
+import com.avaliacaobackend.domain.model.Person;
 import com.avaliacaobackend.domain.services.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ public class PersonController {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Person register(@RequestBody Person person) { return personService.create(person); }
+    public Person create(@RequestBody Person person) { return personService.create(person); }
 
     @PutMapping("/update/{personId}")
     public ResponseEntity<Person> update(@PathVariable Long personId, @RequestBody Person person) {
@@ -34,5 +34,9 @@ public class PersonController {
 
         return ResponseEntity.ok(person);
     }
+
+    @DeleteMapping("/delete/{personId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete (@PathVariable Long personId) { personService.delete(personId); }
 
 }
