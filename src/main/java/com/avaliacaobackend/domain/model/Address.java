@@ -24,8 +24,7 @@ public class Address {
     @OneToOne(mappedBy = "address")
     private Person person;
 
-    public Address() {
-    }
+    public Address() { }
 
     public Address(String address, String city, String state, String postalCode, String country) {
         this.address = address;

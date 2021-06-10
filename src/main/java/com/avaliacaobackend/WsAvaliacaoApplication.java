@@ -2,10 +2,9 @@ package com.avaliacaobackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-//@EnableConfigurationProperties({
-//        FileStorageConfig.class
-//})
+//@EnableConfigurationProperties( { FileStorageConfig.class } )
 @SpringBootApplication
 public class WsAvaliacaoApplication {
 

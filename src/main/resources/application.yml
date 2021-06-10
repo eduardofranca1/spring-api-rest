@@ -1,0 +1,25 @@
+cloud:
+  aws:
+    credentials:
+      access-key: AKIA2QOST6QVX54KRULT
+      secret-key: 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
+    region:
+      static: sa-east-1
+    stack:
+      auto: false
+
+application:
+  bucket:
+    name: myawsbucketduds
+
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2MB
+      max-file-size: 5MB
+      max-request-size: 10MB
+
+server:
+  port: 8080

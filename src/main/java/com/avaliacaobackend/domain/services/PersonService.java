@@ -1,8 +1,8 @@
 package com.avaliacaobackend.domain.services;
 
-import com.avaliacaobackend.domain.model.Person;
 import com.avaliacaobackend.domain.exception.BusinessException;
 import com.avaliacaobackend.domain.exception.ResourceNotFoundException;
+import com.avaliacaobackend.domain.model.Person;
 import com.avaliacaobackend.domain.repositories.PersonRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -44,4 +44,19 @@ public class PersonService {
         personRepository.deleteById(personId);
     }
 
+//        public Person getJson(String person, MultipartFile file) {
+//        Person personJson = new Person();
+//
+//        try {
+//            ObjectMapper objectMapper = new ObjectMapper();
+//            personJson = objectMapper.readValue(person, Person.class);
+//        } catch (IOException e) {
+//            throw new FileStorageException("Error");
+//        }
+//
+//        int fileCount = file.size();
+//        personJson.setCount(fileCount);
+//
+//        return personJson;
+//    }
 }

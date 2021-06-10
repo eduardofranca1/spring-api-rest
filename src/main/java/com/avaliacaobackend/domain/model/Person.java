@@ -1,14 +1,16 @@
 package com.avaliacaobackend.domain.model;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "tb_persons")
-public class Person {
+public class Person implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @EqualsAndHashCode.Include
     @Id
@@ -29,19 +31,25 @@ public class Person {
     @JoinColumn(name = "cod_address", unique = true)
     private Address address;
 
-    public Person() {
+    // criar um get no avatar para pegar a imagem
+
+    private String selfie;
+
+    public String getSelfieUrl() {
+        return "https://myawsbucketduds.s3.sa-east-1.amazonaws.com/..." + this.selfie;
     }
 
-    public Person(String name, String gender, LocalDate birthday, Address address) {
+    public Person() { }
+
+    public Person(String name, String gender, LocalDate birthday, Address address, String selfie) {
         this.name = name;
         this.gender = gender;
         this.birthday = birthday;
         this.address = address;
+        this.selfie = selfie;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
     public String getName() {
         return name;
@@ -78,4 +86,9 @@ public class Person {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    public String getSelfie() { return selfie; }
+
+    public void setSelfie(String selfie) { this.selfie = selfie; }
+
 }
