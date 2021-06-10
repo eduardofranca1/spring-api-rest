@@ -4,7 +4,6 @@ import com.avaliacaobackend.domain.model.Person;
 import com.avaliacaobackend.domain.services.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +22,7 @@ public class PersonController {
     @GetMapping("/{personId}")
     public Person getBydId(@PathVariable Long personId) { return personService.read(personId); }
 
-    @PostMapping(name = "/create", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
+    @PostMapping(name = "/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Person create(@RequestBody Person person) { return personService.create(person); }
 
