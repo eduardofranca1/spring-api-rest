@@ -31,20 +31,20 @@ public class Person implements Serializable {
     @JoinColumn(name = "cod_address", unique = true)
     private Address address;
 
-    private String selfie;
+    private String avatar;
 
-    public String getSelfieUrl() {
-        return "https://myawsbucketduds.s3.sa-east-1.amazonaws.com/..." + this.selfie;
+    public String getAvatarUrl() {
+        return "https://myawsbucketduds.s3.sa-east-1.amazonaws.com/" + this.avatar;
     }
 
     public Person() { }
 
-    public Person(String name, String gender, LocalDate birthday, Address address, String selfie) {
+    public Person(String name, String gender, LocalDate birthday, Address address, String avatar) {
         this.name = name;
         this.gender = gender;
         this.birthday = birthday;
         this.address = address;
-        this.selfie = selfie;
+        this.avatar = avatar;
     }
 
     public Long getId() { return id; }
@@ -85,8 +85,8 @@ public class Person implements Serializable {
         this.address = address;
     }
 
-    public String getSelfie() { return selfie; }
+    public String getAvatar() { return avatar; }
 
-    public void setSelfie(String selfie) { this.selfie = selfie; }
+    public void setAvatar(String avatar) { this.avatar = avatar; }
 
 }
