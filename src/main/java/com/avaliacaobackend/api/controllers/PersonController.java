@@ -1,6 +1,10 @@
 package com.avaliacaobackend.api.controllers;
 
+import com.avaliacaobackend.api.dto.PersonRequestDTO;
+import com.avaliacaobackend.api.dto.PersonResponseDTO;
+import com.avaliacaobackend.api.mapper.PersonMapper;
 import com.avaliacaobackend.domain.model.Person;
+import com.avaliacaobackend.domain.repositories.PersonRepository;
 import com.avaliacaobackend.domain.services.PersonService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -10,65 +14,52 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @RestController
 @RequestMapping("/person")
 public class PersonController {
 
+    private final PersonRepository personRepository;
     private final PersonService personService;
 
     @GetMapping
-    public List<Person> getAll() { return personService.getAll(); }
+    public List<PersonResponseDTO> getAll() {
+        return personRepository.findAll()
+                .stream()
+                .map(PersonMapper::toResponseDTO)
+                .collect(Collectors.toList());
+    }
 
     @GetMapping("/{personId}")
-    public Person getBydId(@PathVariable Long personId) { return personService.read(personId); }
+    public PersonResponseDTO getBydId(@PathVariable Long personId) {
+       return PersonMapper.toResponseDTO(personService.getById(personId));
+    }
 
-    @PostMapping(name = "/create")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Person create(@RequestBody Person person ) { return personService.create(person); }
+    public PersonResponseDTO create(@RequestBody PersonRequestDTO personRequestDTO ) {
+
+        Person person = PersonMapper.fromRequestDTO(personRequestDTO);
+        personService.create(person);
+        return PersonMapper.toResponseDTO(person);
+
+    }
+
+    @PutMapping("/{personId}")
+    public ResponseEntity<Person> update(@PathVariable Long personId, @RequestBody Person person) {
+
+        return ResponseEntity.ok(personService.update(personId, person));
+    }
 
     @PostMapping(value = "/{personId}/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public void create(@PathVariable Long personId, @RequestParam("file") MultipartFile file) {
         personService.changeAvatar(personId, file);
     }
 
-    @PutMapping("/update/{personId}")
-    public ResponseEntity<Person> update(@PathVariable Long personId, @RequestBody Person person) {
-
-        person.setId(personId);
-        person = personService.update(person);
-
-        return ResponseEntity.ok(person);
-    }
-
-    @DeleteMapping("/delete/{personId}")
+    @DeleteMapping("/{personId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete (@PathVariable Long personId) { personService.delete(personId); }
-
-//    @PostMapping(name = "/uploadselfie", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
-//    public Person savePersonWithPhoto(@RequestPart("person") String person, @RequestPart("personSelfie") MultipartFile personSelfie) {
-//        Person personJson = personService.getJson(person, file);
-//        return personJson;
-//    }
-
-//    @PostMapping(name = "/uploadselfie", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE})
-//    public Person savePersonWithPhoto(@RequestPart("person") Person person, @RequestPart("personSelfie") MultipartFile personSelfie) {
-//        return personService.create(person);
-//    }
-
-//    @PostMapping("/insertfile")
-//    public ResponseEntity<Person> insertFile(@RequestParam("person") String person, @RequestParam("personImage")MultipartFile personSelfie) {
-//        Person obj;
-//        try {
-//            obj = new ObjectMapper().readValue(person, Person.class);
-//            obj.setSelfie(personSelfie.getBytes());
-//            obj = personService.create(obj);
-//            return ResponseEntity.ok().body(obj);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
 
 }

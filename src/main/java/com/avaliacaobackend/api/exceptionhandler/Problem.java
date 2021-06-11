@@ -25,4 +25,5 @@ public class Problem {
         private final String name;
         private final String message;
     }
+
 }

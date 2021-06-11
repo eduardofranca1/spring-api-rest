@@ -1,6 +1,6 @@
 package com.avaliacaobackend.domain.model;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
@@ -24,15 +24,15 @@ public class Address {
     @OneToOne(mappedBy = "address")
     private Person person;
 
-    public Address() { }
+//    public Address() { }
 
-    public Address(String address, String city, String state, String postalCode, String country) {
-        this.address = address;
-        this.city = city;
-        this.state = state;
-        this.postalCode = postalCode;
-        this.country = country;
-    }
+//    public Address(String address, String city, String state, String postalCode, String country) {
+//        this.address = address;
+//        this.city = city;
+//        this.state = state;
+//        this.postalCode = postalCode;
+//        this.country = country;
+//    }
 
     public Long getId() {
         return id;

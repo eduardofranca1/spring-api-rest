@@ -5,11 +5,10 @@ import com.avaliacaobackend.domain.exception.ResourceNotFoundException;
 import com.avaliacaobackend.domain.model.Person;
 import com.avaliacaobackend.domain.repositories.PersonRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.List;
 
 @AllArgsConstructor
 @Service
@@ -18,14 +17,14 @@ public class PersonService {
     private final PersonRepository personRepository;
     private final StorageService storageService;
 
-    public List<Person> getAll() {
-        return personRepository.findAll();
-    }
-
-    public Person read(Long personId) {
+    public Person getById(Long personId) {
         return personRepository.findById(personId)
                 .orElseThrow(() -> new ResourceNotFoundException("Person did not found."));
     }
+
+//    public Person readByLocation(String city) {
+//        return personRepository.findByAddress(city);
+//    }
 
     public Person create(Person person) {
         return personRepository.save(person);
@@ -52,13 +51,36 @@ public class PersonService {
 
     }
 
-    public Person update(Person person) {
+//    public PersonUpdateDTO update2(PersonUpdateDTO personDTO) {
+//
+//        if (!personRepository.existsById(personDTO.getId())) {
+//            throw new ResourceNotFoundException("Wrong person code, please try again.");
+//        }
+//
+//        Person person = new Person();
+//
+//        person.setName(personDTO.getName());
+//        person.setGender(personDTO.getGender());
+//        person.setBirthday(personDTO.getBirthday());
+//        person.setAddressDTO(personDTO.getAddress());
+//
+//        return personRepository.save(person);
+//    }
 
-        if (!personRepository.existsById(person.getId())) {
-            throw new ResourceNotFoundException("Wrong person code, please try again.");
+    public Person update(Long personId, Person person) {
+
+        Person personDB = personRepository.findById(personId).orElseThrow(() -> {
+            throw new ResourceNotFoundException("Person did not found.");
+        });
+
+        BeanUtils.copyProperties(person, personDB, "id", "avatar", "address");
+        BeanUtils.copyProperties(person.getAddress(), personDB.getAddress(), "id");
+
+        if (!ObjectUtils.isEmpty(person.getAvatar())) {
+            personDB.setAvatar(person.getAvatar());
         }
 
-        return personRepository.save(person);
+        return personRepository.save(personDB);
     }
 
     public void delete(Long personId) {
@@ -70,19 +92,4 @@ public class PersonService {
         personRepository.deleteById(personId);
     }
 
-//        public Person getJson(String person, MultipartFile file) {
-//        Person personJson = new Person();
-//
-//        try {
-//            ObjectMapper objectMapper = new ObjectMapper();
-//            personJson = objectMapper.readValue(person, Person.class);
-//        } catch (IOException e) {
-//            throw new FileStorageException("Error");
-//        }
-//
-//        int fileCount = file.size();
-//        personJson.setCount(fileCount);
-//
-//        return personJson;
-//    }
 }

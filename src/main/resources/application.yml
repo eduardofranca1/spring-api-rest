@@ -1,32 +1,26 @@
-#cloud:
-#  aws:
-#    credentials:
-#      access-key:
-#      secret-key:
-#    region:
-#      static: sa-east-1
-#    stack:
-#      auto: false
-#
-#application:
-#  bucket:
-#    name: myawsbucketduds
-#
-#
-#spring:
-#  servlet:
-#    multipart:
-#      enabled: true
-#      file-size-threshold: 2MB
-#      max-file-size: 5MB
-#      max-request-size: 10MB
-#
-#server:
-#  port: 8080
+cloud:
+  aws:
+    credentials:
+      access-key: AKIA2QOST6QV3TJVWCWI
+      secret-key: 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
+    region:
+      static: sa-east-1
+    stack:
+      auto: false
 
-amazonProperties:
-  endpointUrl: https://s3.sa-east-1.amazonaws.com
-  accessKey: 
-  secretKey:
-  bucketName:
+application:
+  bucket:
+    name: myawsbucketduds
+
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2MB
+      max-file-size: 5MB
+      max-request-size: 10MB
+
+server:
+  port: 8080
 
