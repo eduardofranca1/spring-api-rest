@@ -51,22 +51,6 @@ public class PersonService {
 
     }
 
-//    public PersonUpdateDTO update2(PersonUpdateDTO personDTO) {
-//
-//        if (!personRepository.existsById(personDTO.getId())) {
-//            throw new ResourceNotFoundException("Wrong person code, please try again.");
-//        }
-//
-//        Person person = new Person();
-//
-//        person.setName(personDTO.getName());
-//        person.setGender(personDTO.getGender());
-//        person.setBirthday(personDTO.getBirthday());
-//        person.setAddressDTO(personDTO.getAddress());
-//
-//        return personRepository.save(person);
-//    }
-
     public Person update(Long personId, Person person) {
 
         Person personDB = personRepository.findById(personId).orElseThrow(() -> {
