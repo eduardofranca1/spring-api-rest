@@ -33,7 +33,6 @@ public class StorageService {
         return "File uploaded : " + fileName;
     }
 
-
     public byte[] downloadFile(String fileName) {
         S3Object s3Object = s3Client.getObject(bucketName, fileName);
         S3ObjectInputStream inputStream = s3Object.getObjectContent();
@@ -45,7 +44,6 @@ public class StorageService {
         }
         return null;
     }
-
 
     public String deleteFile(String fileName) {
         s3Client.deleteObject(bucketName, fileName);

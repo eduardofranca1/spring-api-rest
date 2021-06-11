@@ -31,8 +31,6 @@ public class Person implements Serializable {
     @JoinColumn(name = "cod_address", unique = true)
     private Address address;
 
-    // criar um get no avatar para pegar a imagem
-
     private String selfie;
 
     public String getSelfieUrl() {
