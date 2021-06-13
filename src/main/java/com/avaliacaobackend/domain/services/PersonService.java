@@ -6,6 +6,7 @@ import com.avaliacaobackend.domain.model.Person;
 import com.avaliacaobackend.domain.repositories.PersonRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,17 +17,15 @@ public class PersonService {
 
     private final PersonRepository personRepository;
     private final StorageService storageService;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public Person getById(Long personId) {
         return personRepository.findById(personId)
                 .orElseThrow(() -> new ResourceNotFoundException("Person did not found."));
     }
 
-//    public Person readByLocation(String city) {
-//        return personRepository.findByAddress(city);
-//    }
-
     public Person create(Person person) {
+        person.setPassword(this.bCryptPasswordEncoder.encode(person.getPassword()));
         return personRepository.save(person);
     }
 

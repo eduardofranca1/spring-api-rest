@@ -5,14 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.util.ObjectUtils;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class PersonResponseDTO implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class PersonResponseDTO {
 
     private Long id;
     private String name;
