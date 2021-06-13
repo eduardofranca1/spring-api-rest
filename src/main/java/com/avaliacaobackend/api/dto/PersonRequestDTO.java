@@ -13,6 +13,8 @@ public class PersonRequestDTO implements Serializable {
 
     private String name;
     private String gender;
+    private String email;
+    private String password;
     private LocalDate birthday;
     private AddressDTO address;
 

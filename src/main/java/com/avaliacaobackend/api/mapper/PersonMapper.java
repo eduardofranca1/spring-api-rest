@@ -21,5 +21,6 @@ public class PersonMapper {
     }
 
     public static PersonRequestDTO toRequestDTO (Person person) { return modelMapper.map(person, PersonRequestDTO.class); }
+
     public static Person fromRequestDTO (PersonRequestDTO person) { return modelMapper.map(person, Person.class); }
 }

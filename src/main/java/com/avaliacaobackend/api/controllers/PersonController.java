@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @RestController
@@ -26,15 +25,22 @@ public class PersonController {
 
     @GetMapping
     public List<PersonResponseDTO> getAll() {
-        return personRepository.findAll()
-                .stream()
-                .map(PersonMapper::toResponseDTO)
-                .collect(Collectors.toList());
+        return PersonMapper.toCollectionDTO(this.personRepository.findAll());
+    }
+
+    @GetMapping("/{personCity}/city")
+    public List<PersonResponseDTO> getByCity(@PathVariable String personCity) {
+        return PersonMapper.toCollectionDTO(this.personRepository.findAllByAddressCity(personCity));
+    }
+
+    @GetMapping("/{personState}/state")
+    public List<PersonResponseDTO> getByState(@PathVariable String personState) {
+        return PersonMapper.toCollectionDTO(this.personRepository.findAllByAddressState(personState));
     }
 
     @GetMapping("/{personId}")
     public PersonResponseDTO getBydId(@PathVariable Long personId) {
-       return PersonMapper.toResponseDTO(personService.getById(personId));
+        return PersonMapper.toResponseDTO(personService.getById(personId));
     }
 
     @PostMapping
@@ -49,7 +55,6 @@ public class PersonController {
 
     @PutMapping("/{personId}")
     public ResponseEntity<Person> update(@PathVariable Long personId, @RequestBody Person person) {
-
         return ResponseEntity.ok(personService.update(personId, person));
     }
 
