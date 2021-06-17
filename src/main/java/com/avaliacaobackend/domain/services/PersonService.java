@@ -21,11 +21,11 @@ public class PersonService {
 
     public Person getById(Long personId) {
         return personRepository.findById(personId)
-                .orElseThrow(() -> new ResourceNotFoundException("Person did not found."));
+                .orElseThrow(() -> new ResourceNotFoundException("Person not found."));
     }
 
     public Person create(Person person) {
-        person.setPassword(this.bCryptPasswordEncoder.encode(person.getPassword()));
+//        person.setPassword(this.bCryptPasswordEncoder.encode(person.getPassword()));
         return personRepository.save(person);
     }
 

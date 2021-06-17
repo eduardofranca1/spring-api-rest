@@ -1,6 +1,7 @@
 package com.avaliacaobackend.api.exceptionhandler;
 
 import com.avaliacaobackend.domain.exception.BusinessException;
+import com.avaliacaobackend.domain.exception.InvalidJwtAuthenticationException;
 import com.avaliacaobackend.domain.exception.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
@@ -61,6 +62,18 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<Object> handleResource(ResourceNotFoundException ex, WebRequest request) {
         HttpStatus status = HttpStatus.NOT_FOUND;
+
+        Problem problem = new Problem();
+        problem.setStatus(status.value());
+        problem.setDateTime(LocalDateTime.now());
+        problem.setTitle(ex.getMessage());
+
+        return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
+    }
+
+    @ExceptionHandler(InvalidJwtAuthenticationException.class)
+    public ResponseEntity<Object> handleInvalid(InvalidJwtAuthenticationException ex, WebRequest request) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
 
         Problem problem = new Problem();
         problem.setStatus(status.value());

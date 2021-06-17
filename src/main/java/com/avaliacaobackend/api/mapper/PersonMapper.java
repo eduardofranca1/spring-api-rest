@@ -17,6 +17,7 @@ public class PersonMapper {
 
     private static ModelMapper modelMapper;
 
+    // para resolver o problema de Get e Set no atributo private Person em address
     @PostConstruct
     private void initMapper() {
         modelMapper = new ModelMapper();

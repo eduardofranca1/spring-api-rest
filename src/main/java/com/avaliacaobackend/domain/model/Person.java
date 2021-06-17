@@ -1,6 +1,8 @@
 package com.avaliacaobackend.domain.model;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -29,12 +31,15 @@ public class Person implements Serializable {
     @Column(name = "birthday")
     private LocalDate birthday;
 
+    // IMPORTANTE: testar com unidirecional
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cod_address", unique = true)
     private Address address;
 
-    private String email;
-    private String password;
+//    private String email;
+//    private String password;
+//    private LocalDateTime registerDate;
 
     private String avatar;
 

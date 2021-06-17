@@ -22,8 +22,13 @@ public class Address {
     private String address;
     private String city;
     private String state;
+
+    @Column(name = "postal_code")
     private String postalCode;
+
     private String country;
+
+    // IMPORTANTE: testar com unidirecional
 
     @OneToOne(mappedBy = "address")
     private Person person;
