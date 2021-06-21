@@ -45,7 +45,7 @@ public class PersonController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public PersonResponseDTO create(@RequestBody PersonRequestDTO personRequestDTO ) {
+    public PersonResponseDTO create(@RequestBody PersonRequestDTO personRequestDTO) {
 
         Person person = PersonMapper.fromRequestDTO(personRequestDTO);
         personService.create(person);

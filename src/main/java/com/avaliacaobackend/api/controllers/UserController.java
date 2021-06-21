@@ -1,9 +1,11 @@
 package com.avaliacaobackend.api.controllers;
 
+import com.avaliacaobackend.api.dto.PasswordDTO;
 import com.avaliacaobackend.domain.model.User;
 import com.avaliacaobackend.domain.repositories.UserRepository;
 import com.avaliacaobackend.domain.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,22 +19,13 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-//    @Autowired
-//    private AuthenticationManager authenticationManager;
-
-//    @GetMapping("/search")
-//    public ResponseEntity<User> findByEmail(@RequestParam String email) {
-//        User user = userService.findOptionalByEmail(email);
-//        return ResponseEntity.ok(user);
-//    }
-
     @GetMapping
     public List<User> getAll() {
         return userRepository.findAll();
     }
 
     @GetMapping("/{userId}")
-    public User getById(@PathVariable Integer userId) {
+    public User getById(@PathVariable Long userId) {
         return userService.getById(userId);
     }
 
@@ -41,9 +34,11 @@ public class UserController {
         return userService.create(user);
     }
 
-//    @PostMapping("/login")
-//    public String login(@RequestBody UserDTO userDTO) {
-//         return userDTO.buildToken(authenticationManager);
-//    }
+    @PutMapping("/changePassword/{userId}")
+    public ResponseEntity<User> changePassword(@RequestBody PasswordDTO passwordDTO, @PathVariable Long userId) {
+
+        return userService.changePassword(passwordDTO, userId);
+
+    }
 
 }

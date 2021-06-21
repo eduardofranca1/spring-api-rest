@@ -9,8 +9,6 @@ import java.util.List;
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Long> {
 
-//    Person findByEmailAndPassword(String email, String password);
-
     List<Person> findAllByAddressCity(String city);
     List<Person> findAllByAddressState(String State);
 }
