@@ -6,10 +6,9 @@ import com.avaliacaobackend.domain.exception.ResourceNotFoundException;
 import com.avaliacaobackend.domain.model.User;
 import com.avaliacaobackend.domain.repositories.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @AllArgsConstructor
 @Service
@@ -36,19 +35,23 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public ResponseEntity<User> changePassword(PasswordDTO passwordDTO, Long userId) {
+    public boolean changePassword(PasswordDTO passwordDTO, Long userId) {
 
-       var user = getById(userId);
-       if (passwordEncoder.matches(passwordDTO.getPassword(), user.getPassword())) {
+        var user = getById(userId);
 
-           user.setPassword(passwordEncoder.encode(passwordDTO.getNewPassword()));
-           userRepository.save(user);
-           return ResponseEntity.ok().build();
+        if (passwordEncoder.matches(passwordDTO.getPassword(), user.getPassword())) {
 
-        } else {
-           return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-       }
+            user.setPassword(passwordEncoder.encode(passwordDTO.getNewPassword()));
+            userRepository.save(user);
+
+            return true;
+        }
+
+        return false;
 
     }
+
+    @Transactional
+    public void softDelete(Long userId) { userRepository.softDelete(userId); }
 
 }

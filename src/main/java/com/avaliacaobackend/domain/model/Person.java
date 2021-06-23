@@ -1,8 +1,10 @@
 package com.avaliacaobackend.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.util.ObjectUtils;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,6 +12,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "tb_persons")
@@ -44,6 +47,10 @@ public class Person implements Serializable {
     private String avatar;
 
     public String getAvatarUrl() {
+
+        if (ObjectUtils.isEmpty(this.avatar)) {
+            return null;
+        }
         return "https://myawsbucketduds.s3.sa-east-1.amazonaws.com/" + this.avatar;
     }
 

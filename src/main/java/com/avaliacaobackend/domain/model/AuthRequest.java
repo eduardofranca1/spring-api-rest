@@ -20,4 +20,5 @@ public class AuthRequest {
         this.password = new BCryptPasswordEncoder()
                 .encode(password);
     }
+
 }
