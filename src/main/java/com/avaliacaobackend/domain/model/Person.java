@@ -7,8 +7,8 @@ import lombok.Setter;
 import org.springframework.util.ObjectUtils;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -25,20 +25,23 @@ public class Person implements Serializable {
     @Column(name = "cod_person")
     private Long id;
 
-    @Column(name = "name")
+    @NotEmpty
     private String name;
 
-    @Column(name = "gender")
+    @NotEmpty
     private String gender;
 
-    @Column(name = "birthday")
-    private LocalDate birthday;
-
-    // IMPORTANTE: testar com unidirecional
+    @NotEmpty
+    private String birthday;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cod_address", unique = true)
     private Address address;
+
+//     IMPORTANTE: testar com unidirecional
+//
+//     @OneToOne()
+//     IMPORTANTE: private User user;
 
 //    private String email;
 //    private String password;

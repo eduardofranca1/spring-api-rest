@@ -1,5 +1,6 @@
 package com.avaliacaobackend.api.dto;
 
+import com.avaliacaobackend.domain.model.Person;
 import com.avaliacaobackend.domain.model.User;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,8 +22,10 @@ public class UserDTO {
     @NotEmpty
     private String password;
 
+    private Person person;
+
     public User transformToObject() {
-        return new User(userName, email, password);
+        return new User(userName, email, password, person);
     }
 
 }

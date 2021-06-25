@@ -69,7 +69,7 @@ public class PersonService {
     public void delete(Long personId) {
 
         if (!personRepository.existsById(personId)){
-            throw new BusinessException("Wrong person code, please try again.");
+            throw new BusinessException("Wrong person code, please insert the correct id.");
         }
 
         personRepository.deleteById(personId);
