@@ -1,5 +1,6 @@
 package com.avaliacaobackend.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import org.springframework.util.ObjectUtils;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -31,21 +33,12 @@ public class Person implements Serializable {
     @NotEmpty
     private String gender;
 
-    @NotEmpty
-    private String birthday;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate birthday;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cod_address", unique = true)
+    @JoinColumn(name = "fk_address", unique = true)
     private Address address;
-
-//     IMPORTANTE: testar com unidirecional
-//
-//     @OneToOne()
-//     IMPORTANTE: private User user;
-
-//    private String email;
-//    private String password;
-//    private LocalDateTime registerDate;
 
     private String avatar;
 

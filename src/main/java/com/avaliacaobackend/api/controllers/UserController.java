@@ -42,7 +42,7 @@ public class UserController {
     @GetMapping("/disabled")
     public List<UserResponseDTO> getAllDisabled() { return UserMapper.toCollectionDTO(this.userRepository.findAllByDeleted(true)); }
 
-    @PostMapping
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public UserResponseDTO create(@Valid @RequestBody UserDTO userDTO) {
         User user = userService.create(userDTO.transformToObject());

@@ -44,23 +44,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/authenticate", "/users/**", "/api/**").permitAll()
-//                .antMatchers("/api/**").authenticated()
+                .antMatchers("/authenticate", "/users/register").permitAll()
+                .antMatchers("/api/**", "/users**").authenticated()
                 .and()
                 .exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);;
     }
 
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http
-//                .csrf().disable()
-//                .authorizeRequests()
-//                .antMatchers("/authenticate")
-//                .permitAll().anyRequest().authenticated()
-//                .and().exceptionHandling().and().sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);;
-//    }
 }

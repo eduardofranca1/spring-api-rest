@@ -3,6 +3,7 @@ package com.avaliacaobackend.domain.model;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -18,7 +19,11 @@ public class Address implements Serializable {
     private Long id;
 
     private String address;
+
+    @NotEmpty
     private String city;
+
+    @NotEmpty
     private String state;
 
     @Column(name = "postal_code")
