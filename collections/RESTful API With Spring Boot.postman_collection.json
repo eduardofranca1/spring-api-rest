@@ -1,0 +1,1328 @@
+{
+	"info": {
+		"_postman_id": "a908881b-dd0b-4aa6-95e0-4371da0226be",
+		"name": "RESTful API With Spring Boot",
+		"description": "Api builded for a backend test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "{user Id}",
+							"item": [
+								{
+									"name": "Find user by id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "-91002166",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Delete user by id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "-91002166",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "No Content",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Soft delete user by id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/disable/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"disable",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "-91002166",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "No Content",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/users/disable/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"users",
+														"disable",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Find all users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Change user password by your id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"teste\",\n    \"newPassword\": \"teste\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/changePassword/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"changePassword",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "-91002166",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"password\": \"irure qui magna eiusmod\",\n    \"newPassword\": \"sint nulla\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/users/changePassword/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"changePassword",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Find enable users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/enable",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"enable"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/enable",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"enable"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Find disabled users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/disabled",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"disabled"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/disabled",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"disabled"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "persons",
+					"item": [
+						{
+							"name": "{person Id}",
+							"item": [
+								{
+									"name": "Find person by id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/persons/:personId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"persons",
+												":personId"
+											],
+											"variable": [
+												{
+													"key": "personId",
+													"value": "-91002166",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/persons/:personId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"persons",
+														":personId"
+													],
+													"variable": [
+														{
+															"key": "personId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Update person",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"gender\": \"sint do Lorem\",\n    \"name\": \"quis\",\n    \"id\": -9895431,\n    \"birthday\": \"2014-03-19\",\n    \"address\": {\n        \"address\": \"cillum amet\",\n        \"city\": \"sint fugiat voluptate Duis\",\n        \"country\": \"ut Lorem sit\",\n        \"postalCode\": \"pariatur in sint\",\n        \"state\": \"nisi minim\",\n        \"id\": -83201102\n    },\n    \"avatar\": \"eiusmod proident commodo\",\n    \"avatarUrl\": \"amet sint\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/persons/:personId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"persons",
+												":personId"
+											],
+											"variable": [
+												{
+													"key": "personId",
+													"value": "-91002166",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"gender\": \"sint do Lorem\",\n    \"name\": \"quis\",\n    \"id\": -9895431,\n    \"birthday\": \"2014-03-19\",\n    \"address\": {\n        \"address\": \"cillum amet\",\n        \"city\": \"sint fugiat voluptate Duis\",\n        \"country\": \"ut Lorem sit\",\n        \"postalCode\": \"pariatur in sint\",\n        \"state\": \"nisi minim\",\n        \"id\": -83201102\n    },\n    \"avatar\": \"eiusmod proident commodo\",\n    \"avatarUrl\": \"amet sint\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/persons/:personId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"persons",
+														":personId"
+													],
+													"variable": [
+														{
+															"key": "personId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Delete person by id",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/persons/:personId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"persons",
+												":personId"
+											],
+											"variable": [
+												{
+													"key": "personId",
+													"value": "-91002166",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "No Content",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/persons/:personId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"persons",
+														":personId"
+													],
+													"variable": [
+														{
+															"key": "personId"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Upload person avatar",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "multipart/form-data"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"value": "nostrud veniam",
+													"description": "(Required) ",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/persons/:personId/upload",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"persons",
+												":personId",
+												"upload"
+											],
+											"variable": [
+												{
+													"key": "personId",
+													"value": "-91002166",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "file",
+															"value": "nostrud veniam",
+															"description": "(Required) ",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/persons/:personId/upload",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"persons",
+														":personId",
+														"upload"
+													],
+													"variable": [
+														{
+															"key": "personId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Find all persons",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/persons",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"persons"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/persons",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"persons"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Create new person",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"gender\": \"sint do Lorem\",\n    \"name\": \"quis\",\n    \"id\": -9895431,\n    \"birthday\": \"2014-03-19\",\n    \"address\": {\n        \"address\": \"cillum amet\",\n        \"city\": \"sint fugiat voluptate Duis\",\n        \"country\": \"ut Lorem sit\",\n        \"postalCode\": \"pariatur in sint\",\n        \"state\": \"nisi minim\",\n        \"id\": -83201102\n    },\n    \"avatar\": \"eiusmod proident commodo\",\n    \"avatarUrl\": \"amet sint\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/persons",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"persons"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"gender\": \"sint do Lorem\",\n    \"name\": \"quis\",\n    \"id\": -9895431,\n    \"birthday\": \"2014-03-19\",\n    \"address\": {\n        \"address\": \"cillum amet\",\n        \"city\": \"sint fugiat voluptate Duis\",\n        \"country\": \"ut Lorem sit\",\n        \"postalCode\": \"pariatur in sint\",\n        \"state\": \"nisi minim\",\n        \"id\": -83201102\n    },\n    \"avatar\": \"eiusmod proident commodo\",\n    \"avatarUrl\": \"amet sint\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/persons",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"persons"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Find person by state",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/persons/:personState/state",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"persons",
+										":personState",
+										"state"
+									],
+									"variable": [
+										{
+											"key": "personState",
+											"value": "non qui",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/persons/:personState/state",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"persons",
+												":personState",
+												"state"
+											],
+											"variable": [
+												{
+													"key": "personState"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Find person by city",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/persons/:personCity/city",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"persons",
+										":personCity",
+										"city"
+									],
+									"variable": [
+										{
+											"key": "personCity",
+											"value": "non qui",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/persons/:personCity/city",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"persons",
+												":personCity",
+												"city"
+											],
+											"variable": [
+												{
+													"key": "personCity"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "file",
+					"item": [
+						{
+							"name": "Upload file",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"file\": \"nostrud veniam\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/file/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"file",
+										"upload"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"file\": \"nostrud veniam\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/file/upload",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"file",
+												"upload"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "non qui"
+								}
+							]
+						},
+						{
+							"name": "Delete file by name",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/file/delete/:fileName",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"file",
+										"delete",
+										":fileName"
+									],
+									"variable": [
+										{
+											"key": "fileName",
+											"value": "non qui",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/file/delete/:fileName",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"file",
+												"delete",
+												":fileName"
+											],
+											"variable": [
+												{
+													"key": "fileName"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "non qui"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "address",
+					"item": [
+						{
+							"name": "Find all address",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/address",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"address"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/address",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"address"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Find address by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/address/:addressId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"address",
+										":addressId"
+									],
+									"variable": [
+										{
+											"key": "addressId",
+											"value": "-91002166",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/address/:addressId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"address",
+												":addressId"
+											],
+											"variable": [
+												{
+													"key": "addressId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Register new user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"teste\",\n    \"password\": \"teste\",\n    \"email\": \"teste@gmail.com\",\n    \"person\": {\n        \"name\": \"teste\",\n        \"gender\": \"teste\",\n        \"birthday\": \"28/07/1992\",\n    \"address\": {\n        \"address\": \"teste\",\n        \"city\": \"Maceió\",\n        \"state\": \"Alagoas\",\n        \"postalCode\": \"teste\",\n        \"country\": \"Brazil\"\n    }\n    } \n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/user/register",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Created",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"incididunt in\",\n    \"password\": \"consequat q\",\n    \"username\": \"dolor sit dolore\",\n    \"createdAt\": \"1988-11-05T10:41:45.536Z\",\n    \"person\": {\n        \"gender\": \"sint reprehenderit\",\n        \"name\": \"cupidatat esse nostrud nisi\",\n        \"id\": -5483201,\n        \"birthday\": \"1993-08-23\",\n        \"address\": {\n            \"address\": \"pariatur fugiat tempor qui\",\n            \"city\": \"dolor consectetur\",\n            \"country\": \"laborum voluptate ad in\",\n            \"postalCode\": \"nostrud Lorem nulla\",\n            \"state\": \"nostrud velit ad tempor Duis\",\n            \"id\": 77935679\n        },\n        \"avatar\": \"aliquip culpa Duis\",\n        \"avatarUrl\": \"sed consectetur dolore\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "*/*"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "User authentication",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"teste\",\n    \"password\": \"teste\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/authenticate",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"tempor sed culpa\",\n    \"password\": \"nulla\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/authenticate",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "*/*"
+						}
+					],
+					"cookie": [],
+					"body": "non qui"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
