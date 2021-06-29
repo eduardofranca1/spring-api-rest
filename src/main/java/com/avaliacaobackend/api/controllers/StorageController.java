@@ -17,7 +17,7 @@ public class StorageController {
     @Autowired
     private StorageService service;
 
-    @Operation(summary = "Upload avatar")
+    @Operation(summary = "Upload file")
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestParam(value = "file") MultipartFile file) {
         return new ResponseEntity<>(service.uploadFile(file), HttpStatus.OK);
@@ -35,7 +35,7 @@ public class StorageController {
 //                .body(resource);
 //    }
 
-    @Operation(summary = "Delete avatar by name")
+    @Operation(summary = "Delete file by name")
     @DeleteMapping("/delete/{fileName}")
     public ResponseEntity<String> deleteFile(@PathVariable String fileName) {
         return new ResponseEntity<>(service.deleteFile(fileName), HttpStatus.OK);

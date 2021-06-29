@@ -1,10 +1,8 @@
 package com.avaliacaobackend.api.controllers;
 
 import com.avaliacaobackend.api.dto.PasswordDTO;
-import com.avaliacaobackend.api.dto.UserDTO;
 import com.avaliacaobackend.api.dto.UserResponseDTO;
 import com.avaliacaobackend.api.mapper.UserMapper;
-import com.avaliacaobackend.domain.model.User;
 import com.avaliacaobackend.domain.repositories.UserRepository;
 import com.avaliacaobackend.domain.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -14,12 +12,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Tag(name = "User endpoint")
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserController {
 
     @Autowired
@@ -48,14 +45,6 @@ public class UserController {
     @Operation(summary = "Find disabled users")
     @GetMapping("/disabled")
     public List<UserResponseDTO> getAllDisabled() { return UserMapper.toCollectionDTO(this.userRepository.findAllByDeleted(true)); }
-
-    @Operation(summary = "Register new user")
-    @PostMapping("/register")
-    @ResponseStatus(HttpStatus.CREATED)
-    public UserResponseDTO create(@Valid @RequestBody UserDTO userDTO) {
-        User user = userService.create(userDTO.transformToObject());
-        return UserResponseDTO.toResponseDTO(user);
-    }
 
     @Operation(summary = "Change user password by your id")
     @PutMapping("/changePassword/{userId}")

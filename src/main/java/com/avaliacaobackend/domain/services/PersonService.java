@@ -19,7 +19,7 @@ public class PersonService {
 
     public Person getById(Long personId) {
         return personRepository.findById(personId)
-                .orElseThrow(() -> new ResourceNotFoundException("Person not found."));
+                .orElseThrow(() -> new ResourceNotFoundException("Person does not found, please insert the correct ID."));
     }
 
     public Person create(Person person) {
@@ -31,7 +31,7 @@ public class PersonService {
         Person person = personRepository.findById(personId).orElseThrow();
 
         if (file.isEmpty() ||  (!file.getContentType().equalsIgnoreCase("image/jpeg") && !file.getContentType().equalsIgnoreCase("image/png"))) {
-            throw new BusinessException("Image type not match.");
+            throw new BusinessException("Image type not match, please insert an image jpeg or png.");
         }
 
         if (!ObjectUtils.isEmpty(person.getAvatar())){
@@ -48,9 +48,10 @@ public class PersonService {
     public Person update(Long personId, Person person) {
 
         Person personDB = personRepository.findById(personId).orElseThrow(() -> {
-            throw new ResourceNotFoundException("Person did not found.");
+            throw new ResourceNotFoundException("Person does not found, please insert the correct ID.");
         });
 
+        // para ignorar os atributos passados em " " na hora de fazer o update em Person
         BeanUtils.copyProperties(person, personDB, "id", "avatar", "address", "createdAt", "updatedAt");
         BeanUtils.copyProperties(person.getAddress(), personDB.getAddress(), "id", "createdAt", "updatedAt");
 
@@ -64,7 +65,7 @@ public class PersonService {
     public void delete(Long personId) {
 
         if (!personRepository.existsById(personId)){
-            throw new BusinessException("Wrong person code, please insert the correct id.");
+            throw new BusinessException("Wrong person code, please insert the correct ID.");
         }
 
         personRepository.deleteById(personId);

@@ -29,10 +29,10 @@ public class Person implements Serializable {
     @Column(name = "cod_person")
     private Long id;
 
-    @NotEmpty(message = "{NotEmpty.name}")
+    @NotEmpty
     private String name;
 
-    @NotEmpty(message = "{NotEmpty.gender}")
+    @NotEmpty
     private String gender;
 
     @JsonFormat(pattern = "dd/MM/yyyy")

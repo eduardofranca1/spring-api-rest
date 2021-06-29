@@ -52,7 +52,6 @@ public class PersonController {
         return personService.create(person);
     }
 
-
     @Operation(summary = "Update person")
     @PutMapping("/{personId}")
     public ResponseEntity<Person> update(@PathVariable Long personId, @RequestBody Person person) {

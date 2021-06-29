@@ -19,7 +19,7 @@ public class UserService {
 
     public User getById(Long userId) {
         return userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found."));
+                .orElseThrow(() -> new ResourceNotFoundException("User does not found."));
     }
 
     public User create(User user){
@@ -29,7 +29,7 @@ public class UserService {
                 .anyMatch(existingUser -> !existingUser.equals(user));
 
         if (existingUserName){
-            throw new BusinessException("Already have a user with this username.");
+            throw new BusinessException("Already have an user with this username.");
         }
 
         boolean existingEmail = userRepository.findOptionalByEmail(user.getEmail())
@@ -37,7 +37,7 @@ public class UserService {
                 .anyMatch(existingUser -> !existingUser.equals(user));
 
         if(existingEmail){
-            throw new BusinessException("Already have a user with this email.");
+            throw new BusinessException("Already have an user with this email.");
         }
 
         return userRepository.save(user);

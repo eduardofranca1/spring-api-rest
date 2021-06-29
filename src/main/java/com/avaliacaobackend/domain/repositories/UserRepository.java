@@ -33,4 +33,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Modifying
     void softDelete(Long id);
 
+//     others examples
+
 }

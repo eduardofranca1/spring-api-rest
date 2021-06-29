@@ -30,20 +30,4 @@ public class AddressController {
     @GetMapping("/{addressId}")
     public Address getById(@PathVariable Long addressId) { return addressService.getById(addressId); }
 
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public Address create(@RequestBody Address address) {
-//        return addressService.create(address);
-//    }
-//
-//    @PutMapping("/{addressId}")
-//    public ResponseEntity<Address> update (@PathVariable Long addressId, @RequestBody Address address) {
-//        return ResponseEntity.ok(addressService.update(addressId, address));
-//    }
-
-//    @Operation(summary = "Delete address by id")
-//    @DeleteMapping("/{addressId}")
-//    @ResponseStatus(HttpStatus.NO_CONTENT)
-//    public void delete (@PathVariable Long addressId) { addressService.delete(addressId); }
-
 }

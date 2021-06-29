@@ -1,7 +1,6 @@
 package com.avaliacaobackend.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,20 +24,20 @@ public class Address implements Serializable {
     @Column(name = "cod_address")
     private Long id;
 
-    @NotEmpty(message = "{NotEmpty.address}")
+    @NotEmpty
     private String address;
 
-    @NotEmpty(message = "{NotEmpty.city}")
+    @NotEmpty
     private String city;
 
-    @NotEmpty(message = "{NotEmpty.state}")
+    @NotEmpty
     private String state;
 
     @Column(name = "postal_code")
-    @NotEmpty(message = "{NotEmpty.postalCode}")
+    @NotEmpty
     private String postalCode;
 
-    @NotEmpty(message = "{NotEmpty.country}")
+    @NotEmpty
     private String country;
 
     @JsonIgnore
