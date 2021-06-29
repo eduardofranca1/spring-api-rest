@@ -23,7 +23,7 @@ Projeto para avalição de backend
 - Conversão automática de DTO para Entidade
 - Mensagens de exceções personalizadas
 - JWT - JSON Web Token para autenticação do usuário
-- Upload de imagens no Amazon S3 (é necessário ter suas credenciais da Amazon!)
+- Upload de imagens no Amazon S3 (é necessário inserir suas credenciais da Amazon em application.yml!)
 - Flyway para o controle e versionamento de dados e tabelas no banco de dados
 - Open API para documentação da API
 
