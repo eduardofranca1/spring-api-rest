@@ -16,14 +16,14 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
 
-    @NotEmpty
+    @NotEmpty(message = "{username.notempty}")
     private String username;
 
-    @NotEmpty
+    @NotEmpty(message = "{email.notempty}")
     @Email
     private String email;
 
-    @NotEmpty
+    @NotEmpty(message = "{password.notempty}")
     private String password;
 
     private LocalDateTime createdAt;

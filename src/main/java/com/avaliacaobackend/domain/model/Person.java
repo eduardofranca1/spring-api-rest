@@ -11,6 +11,7 @@ import org.springframework.util.ObjectUtils;
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -30,13 +31,14 @@ public class Person implements Serializable {
     @Column(name = "cod_person")
     private Long id;
 
-    @NotEmpty
+    @NotEmpty(message = "{name.notempty}")
     private String name;
 
-    @NotEmpty
+    @NotEmpty(message = "{gender.notempty}")
     private String gender;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
+    @NotNull(message = "{birthday.notnull}")
     private LocalDate birthday;
 
     @JsonIgnore

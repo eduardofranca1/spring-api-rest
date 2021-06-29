@@ -24,20 +24,20 @@ public class Address implements Serializable {
     @Column(name = "cod_address")
     private Long id;
 
-    @NotEmpty
+    @NotEmpty(message = "{address.notempty}")
     private String address;
 
-    @NotEmpty
+    @NotEmpty(message = "{city.notempty}")
     private String city;
 
-    @NotEmpty
+    @NotEmpty(message = "{state.notempty}")
     private String state;
 
     @Column(name = "postal_code")
-    @NotEmpty
+    @NotEmpty(message = "{postalCode.notempty}")
     private String postalCode;
 
-    @NotEmpty
+    @NotEmpty(message = "{country.notempty}")
     private String country;
 
     @JsonIgnore
