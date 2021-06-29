@@ -27,21 +27,11 @@ public class PersonController {
     @GetMapping
     public List<Person> getAll() { return personRepository.findAll(); }
 
-//    @GetMapping
-//    public List<PersonResponseDTO> getAll() {
-//        return PersonMapper.toCollectionDTO(this.personRepository.findAll());
-//    }
-
     @Operation(summary = "Find person by city")
     @GetMapping("/{personCity}/city")
     public List<Person> getByCity(@PathVariable String personCity) {
         return personRepository.findAllByAddressCity(personCity);
     }
-
-//    @GetMapping("/{personCity}/city")
-//    public List<PersonResponseDTO> getByCity(@PathVariable String personCity) {
-//        return PersonMapper.toCollectionDTO(this.personRepository.findAllByAddressCity(personCity));
-//    }
 
     @Operation(summary = "Find person by state")
     @GetMapping("/{personState}/state")
@@ -49,21 +39,11 @@ public class PersonController {
         return personRepository.findAllByAddressState(personState);
     }
 
-//    @GetMapping("/{personState}/state")
-//    public List<PersonResponseDTO> getByState(@PathVariable String personState) {
-//        return PersonMapper.toCollectionDTO(this.personRepository.findAllByAddressState(personState));
-//    }
-
     @Operation(summary = "Find person by id")
     @GetMapping("/{personId}")
     public Person getById(@PathVariable Long personId) {
         return personService.getById(personId);
     }
-
-//    @GetMapping("/{personId}")
-//    public PersonResponseDTO getBydId(@PathVariable Long personId) {
-//        return PersonMapper.toResponseDTO(personService.getById(personId));
-//    }
 
     @Operation(summary = "Create new person")
     @PostMapping
@@ -72,22 +52,6 @@ public class PersonController {
         return personService.create(person);
     }
 
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public PersonResponseDTO create(@Valid @RequestBody PersonDTO personDTO) {
-//        Person person = personService.create(personDTO.transformToObject());
-//        return PersonResponseDTO.toResponseDTO(person);
-//    }
-
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public PersonResponseDTO create(@RequestBody PersonRequestDTO personRequestDTO) {
-//
-//        Person person = PersonMapper.fromRequestDTO(personRequestDTO);
-//        personService.create(person);
-//        return PersonMapper.toResponseDTO(person);
-//
-//    }
 
     @Operation(summary = "Update person")
     @PutMapping("/{personId}")

@@ -1,5 +1,6 @@
 package com.avaliacaobackend.api.controllers;
 
+import com.avaliacaobackend.domain.exception.BusinessException;
 import com.avaliacaobackend.domain.model.AuthRequest;
 import com.avaliacaobackend.domain.jwt.JwtUtil;
 import io.swagger.v3.oas.annotations.Operation;
@@ -30,14 +31,14 @@ public class AuthController {
 
     @Operation(summary = "User authentication")
     @PostMapping("/authenticate")
-    public String generateToken(@RequestBody AuthRequest authRequest) throws Exception {
+    public String generateToken(@RequestBody AuthRequest authRequest) throws BusinessException {
 
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
             );
-        } catch (Exception ex) {
-            throw new Exception("invalid username or password");
+        } catch (BusinessException ex) {
+            throw new BusinessException("invalid username or password");
         }
         return jwtUtil.generateToken(authRequest.getUsername());
     }
