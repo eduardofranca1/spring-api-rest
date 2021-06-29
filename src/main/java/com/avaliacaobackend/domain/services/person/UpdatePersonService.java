@@ -1,9 +1,10 @@
-package com.avaliacaobackend.domain.services;
+package com.avaliacaobackend.domain.services.person;
 
 import com.avaliacaobackend.domain.exception.BusinessException;
 import com.avaliacaobackend.domain.exception.ResourceNotFoundException;
 import com.avaliacaobackend.domain.model.Person;
 import com.avaliacaobackend.domain.repositories.PersonRepository;
+import com.avaliacaobackend.domain.services.StorageService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -12,19 +13,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 @AllArgsConstructor
 @Service
-public class PersonService {
+public class UpdatePersonService {
 
     private final PersonRepository personRepository;
     private final StorageService storageService;
-
-    public Person getById(Long personId) {
-        return personRepository.findById(personId)
-                .orElseThrow(() -> new ResourceNotFoundException("Person does not found, please insert the correct ID."));
-    }
-
-    public Person create(Person person) {
-        return personRepository.save(person);
-    }
 
     public void changeAvatar(Long personId, MultipartFile file) {
 
@@ -61,14 +53,4 @@ public class PersonService {
 
         return personRepository.save(personDB);
     }
-
-    public void delete(Long personId) {
-
-        if (!personRepository.existsById(personId)){
-            throw new BusinessException("Wrong person code, please insert the correct ID.");
-        }
-
-        personRepository.deleteById(personId);
-    }
-
 }

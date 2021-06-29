@@ -18,6 +18,14 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findOptionalByEmail(String email);
 
+    List<User> findAllByDeleted(boolean isDeleted);
+
+    @Query("UPDATE User u SET u.deleted=true where u.id=?1")
+    @Modifying
+    void softDelete(Long id);
+
+//     others examples for soft delete
+//
     @Query("SELECT u FROM User u WHERE u.deleted=false")
     List<User> findAllEnabled();
 
@@ -26,13 +34,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT u FROM User u WHERE u.deleted=true")
     List<User> findAllDisabled();
-
-    List<User> findAllByDeleted(boolean isDeleted);
-
-    @Query("UPDATE User u SET u.deleted=true where u.id=?1")
-    @Modifying
-    void softDelete(Long id);
-
-//     others examples
 
 }

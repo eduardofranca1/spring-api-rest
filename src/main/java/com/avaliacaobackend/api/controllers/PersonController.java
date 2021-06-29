@@ -2,7 +2,10 @@ package com.avaliacaobackend.api.controllers;
 
 import com.avaliacaobackend.domain.model.Person;
 import com.avaliacaobackend.domain.repositories.PersonRepository;
-import com.avaliacaobackend.domain.services.PersonService;
+import com.avaliacaobackend.domain.services.person.CreatePersonService;
+import com.avaliacaobackend.domain.services.person.DeletePersonService;
+import com.avaliacaobackend.domain.services.person.FindPersonService;
+import com.avaliacaobackend.domain.services.person.UpdatePersonService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -20,8 +23,11 @@ import java.util.List;
 @RequestMapping("/api/persons")
 public class PersonController {
 
+    private final FindPersonService findPersonService;
+    private final CreatePersonService createPersonService;
+    private final UpdatePersonService updatePersonService;
+    private final DeletePersonService deletePersonService;
     private final PersonRepository personRepository;
-    private final PersonService personService;
 
     @Operation(summary = "Find all persons")
     @GetMapping
@@ -42,31 +48,31 @@ public class PersonController {
     @Operation(summary = "Find person by id")
     @GetMapping("/{personId}")
     public Person getById(@PathVariable Long personId) {
-        return personService.getById(personId);
+        return findPersonService.getById(personId);
     }
 
     @Operation(summary = "Create new person")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Person create(@RequestBody Person person) {
-        return personService.create(person);
+        return createPersonService.create(person);
     }
 
     @Operation(summary = "Update person")
     @PutMapping("/{personId}")
     public ResponseEntity<Person> update(@PathVariable Long personId, @RequestBody Person person) {
-        return ResponseEntity.ok(personService.update(personId, person));
+        return ResponseEntity.ok(updatePersonService.update(personId, person));
     }
 
     @Operation(summary = "Upload person avatar")
     @PostMapping(value = "/{personId}/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public void create(@PathVariable Long personId, @RequestParam("file") MultipartFile file) {
-        personService.changeAvatar(personId, file);
+        updatePersonService.changeAvatar(personId, file);
     }
 
     @Operation(summary = "Delete person by id")
     @DeleteMapping("/{personId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete (@PathVariable Long personId) { personService.delete(personId); }
+    public void delete (@PathVariable Long personId) { deletePersonService.delete(personId); }
 
 }
