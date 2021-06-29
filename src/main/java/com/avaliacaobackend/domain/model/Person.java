@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.springframework.util.ObjectUtils;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -48,6 +49,7 @@ public class Person implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_address", unique = true)
+    @Valid
     private Address address;
 
     private String avatar;

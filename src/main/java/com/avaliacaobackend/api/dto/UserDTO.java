@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
@@ -27,6 +28,7 @@ public class UserDTO {
 
     private LocalDateTime createdAt;
 
+    @Valid
     private Person person;
 
     public User transformToObject() {
