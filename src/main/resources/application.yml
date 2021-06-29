@@ -1,16 +1,16 @@
 cloud:
   aws:
     credentials:
-      access-key: AKIA2QOST6QVRY3V6RX7
-      secret-key: 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
+      access-key:
+      secret-key:
     region:
-      static: sa-east-1
+      static:
     stack:
-      auto: false
+      auto:
 
 application:
   bucket:
-    name: myawsbucketduds
+    name:
 
 
 spring:
