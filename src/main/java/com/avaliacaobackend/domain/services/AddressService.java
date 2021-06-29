@@ -13,10 +13,23 @@ public class AddressService {
     @Autowired
     private AddressRepository addressRepository;
 
+//    public Address create (Address address) {
+//        return addressRepository.save(address);
+//    }
+
     public Address getById(Long addressId) {
         return addressRepository.findById(addressId)
                 .orElseThrow(() -> new ResourceNotFoundException("Address does not exists."));
     }
+
+//    public Address update(Long addressId, Address address) {
+//
+//        if (!addressRepository.existsById(addressId)){
+//            throw new BusinessException("Wrong address code, please insert the correct id.");
+//        }
+//
+//        return addressRepository.save(address);
+//    }
 
     public void delete(Long addressId) {
 

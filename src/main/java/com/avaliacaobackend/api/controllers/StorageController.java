@@ -1,12 +1,15 @@
 package com.avaliacaobackend.api.controllers;
 
 import com.avaliacaobackend.domain.services.StorageService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+@Tag(name = "Upload endpoint")
 @RestController
 @RequestMapping("/api/file")
 public class StorageController {
@@ -14,6 +17,7 @@ public class StorageController {
     @Autowired
     private StorageService service;
 
+    @Operation(summary = "Upload avatar")
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestParam(value = "file") MultipartFile file) {
         return new ResponseEntity<>(service.uploadFile(file), HttpStatus.OK);
@@ -31,6 +35,7 @@ public class StorageController {
 //                .body(resource);
 //    }
 
+    @Operation(summary = "Delete avatar by name")
     @DeleteMapping("/delete/{fileName}")
     public ResponseEntity<String> deleteFile(@PathVariable String fileName) {
         return new ResponseEntity<>(service.deleteFile(fileName), HttpStatus.OK);

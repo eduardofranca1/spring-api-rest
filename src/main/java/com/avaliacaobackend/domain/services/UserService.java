@@ -24,6 +24,14 @@ public class UserService {
 
     public User create(User user){
 
+        boolean existingUserName =  userRepository.findOptionalByUsername(user.getUsername())
+                .stream()
+                .anyMatch(existingUser -> !existingUser.equals(user));
+
+        if (existingUserName){
+            throw new BusinessException("Already have a user with this username.");
+        }
+
         boolean existingEmail = userRepository.findOptionalByEmail(user.getEmail())
                 .stream()
                 .anyMatch(existingUser -> !existingUser.equals(user));

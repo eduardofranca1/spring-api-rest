@@ -19,22 +19,20 @@ public class UserResponseDTO {
 
     public UserResponseDTO(User user) {
         this.id = user.getId();
-        this.userName = user.getUserName();
+        this.userName = user.getUsername();
         this.email = user.getEmail();
         this.person = user.getPerson();
     }
 
     public static UserResponseDTO toResponseDTO(User user) {
-        return new UserResponseDTO(user.getId(), user.getUserName(), user.getEmail(), user.getPerson());
+        return new UserResponseDTO(user.getId(), user.getUsername(), user.getEmail(), user.getPerson());
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getUserName() {
-        return userName;
-    }
+    public String getUserName() { return userName; }
 
     public String getEmail() {
         return email;

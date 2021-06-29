@@ -1,14 +1,10 @@
 //package com.avaliacaobackend.api.mapper;
 //
-//import com.avaliacaobackend.api.dto.AddressDTO;
-//import com.avaliacaobackend.api.dto.PersonRequestDTO;
 //import com.avaliacaobackend.api.dto.PersonResponseDTO;
-//import com.avaliacaobackend.domain.model.Address;
 //import com.avaliacaobackend.domain.model.Person;
 //import org.modelmapper.ModelMapper;
 //import org.springframework.stereotype.Component;
 //
-//import javax.annotation.PostConstruct;
 //import java.util.List;
 //import java.util.stream.Collectors;
 //
@@ -17,7 +13,7 @@
 //
 //    private static ModelMapper modelMapper;
 //
-//    // para resolver o problema de Get e Set no atributo private Person em address
+//     para resolver o problema de Get e Set no atributo private Person em address
 //    @PostConstruct
 //    private void initMapper() {
 //        modelMapper = new ModelMapper();
@@ -26,7 +22,7 @@
 //        });
 //    }
 //
-//    public static PersonResponseDTO toResponseDTO (Person person) { return modelMapper.map(person, PersonResponseDTO.class); }
+//    public static PersonResponseDTO toResponseDTO (Person person) { return new PersonResponseDTO(person); }
 //
 //    public static List<PersonResponseDTO> toCollectionDTO(List<Person> persons) {
 //        return persons.stream()
@@ -34,7 +30,7 @@
 //                .collect(Collectors.toList());
 //    }
 //
-//    public static PersonRequestDTO toRequestDTO (Person person) { return modelMapper.map(person, PersonRequestDTO.class); }
+//    public static PersonDTO toRequestDTO (Person person) { return modelMapper.map(person, PersonDTO.class); }
 //
-//    public static Person fromRequestDTO (PersonRequestDTO person) { return modelMapper.map(person, Person.class); }
+//    public static Person fromRequestDTO (PersonDTO person) { return modelMapper.map(person, Person.class); }
 //}
