@@ -1,6 +1,6 @@
 package com.avaliacaobackend.domain.jwt;
 
-import com.avaliacaobackend.domain.services.CustomUserDetailsService;
+import com.avaliacaobackend.domain.services.user.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

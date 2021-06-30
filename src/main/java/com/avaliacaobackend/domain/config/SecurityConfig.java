@@ -1,7 +1,7 @@
 package com.avaliacaobackend.domain.config;
 
 import com.avaliacaobackend.domain.jwt.JwtFilter;
-import com.avaliacaobackend.domain.services.CustomUserDetailsService;
+import com.avaliacaobackend.domain.services.user.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

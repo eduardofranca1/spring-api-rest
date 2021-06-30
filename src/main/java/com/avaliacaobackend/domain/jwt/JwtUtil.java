@@ -16,7 +16,7 @@ public class JwtUtil {
 
     // lógica para gerar o o token
 
-    private String secret = "javatechie";
+    private String secret = "mytestapi";
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);

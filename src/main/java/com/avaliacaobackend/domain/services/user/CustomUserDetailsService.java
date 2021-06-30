@@ -1,4 +1,4 @@
-package com.avaliacaobackend.domain.services;
+package com.avaliacaobackend.domain.services.user;
 
 import com.avaliacaobackend.domain.model.User;
 import com.avaliacaobackend.domain.repositories.UserRepository;
