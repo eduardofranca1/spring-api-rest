@@ -2,14 +2,11 @@ package com.avaliacaobackend.api.controllers;
 
 import com.avaliacaobackend.domain.model.Person;
 import com.avaliacaobackend.domain.repositories.PersonRepository;
-import com.avaliacaobackend.domain.services.person.CreatePersonService;
-import com.avaliacaobackend.domain.services.person.DeletePersonService;
 import com.avaliacaobackend.domain.services.person.FindPersonService;
 import com.avaliacaobackend.domain.services.person.UpdatePersonService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +21,7 @@ import java.util.List;
 public class PersonController {
 
     private final FindPersonService findPersonService;
-    private final CreatePersonService createPersonService;
     private final UpdatePersonService updatePersonService;
-    private final DeletePersonService deletePersonService;
     private final PersonRepository personRepository;
 
     @Operation(summary = "Find all persons")
@@ -51,13 +46,6 @@ public class PersonController {
         return findPersonService.getById(personId);
     }
 
-    @Operation(summary = "Create new person")
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Person create(@RequestBody Person person) {
-        return createPersonService.create(person);
-    }
-
     @Operation(summary = "Update person")
     @PutMapping("/{personId}")
     public ResponseEntity<Person> update(@PathVariable Long personId, @RequestBody Person person) {
@@ -69,10 +57,5 @@ public class PersonController {
     public void create(@PathVariable Long personId, @RequestParam("file") MultipartFile file) {
         updatePersonService.changeAvatar(personId, file);
     }
-
-    @Operation(summary = "Delete person by id")
-    @DeleteMapping("/{personId}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete (@PathVariable Long personId) { deletePersonService.delete(personId); }
 
 }

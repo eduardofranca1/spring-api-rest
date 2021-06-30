@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a908881b-dd0b-4aa6-95e0-4371da0226be",
+		"_postman_id": "be7243ee-0121-4227-9c37-54a522bd6754",
 		"name": "RESTful API With Spring Boot",
 		"description": "Api builded for a backend test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -33,7 +33,7 @@
 											"variable": [
 												{
 													"key": "userId",
-													"value": "-91002166",
+													"value": "34110067",
 													"description": "(Required) "
 												}
 											]
@@ -94,7 +94,7 @@
 											"variable": [
 												{
 													"key": "userId",
-													"value": "-91002166",
+													"value": "34110067",
 													"description": "(Required) "
 												}
 											]
@@ -114,69 +114,6 @@
 													"path": [
 														"api",
 														"users",
-														":userId"
-													],
-													"variable": [
-														{
-															"key": "userId"
-														}
-													]
-												}
-											},
-											"status": "No Content",
-											"code": 204,
-											"_postman_previewlanguage": "text",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/plain"
-												}
-											],
-											"cookie": [],
-											"body": ""
-										}
-									]
-								},
-								{
-									"name": "Soft delete user by id",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/api/users/disable/:userId",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"users",
-												"disable",
-												":userId"
-											],
-											"variable": [
-												{
-													"key": "userId",
-													"value": "-91002166",
-													"description": "(Required) "
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"name": "No Content",
-											"originalRequest": {
-												"method": "DELETE",
-												"header": [],
-												"url": {
-													"raw": "{{baseUrl}}/api/users/disable/:userId",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"api",
-														"users",
-														"disable",
 														":userId"
 													],
 													"variable": [
@@ -261,7 +198,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"password\": \"teste\",\n    \"newPassword\": \"teste\"\n}"
+									"raw": "{\n    \"password\": \"est culpa aliqua\",\n    \"newPassword\": \"eu Lorem\"\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/api/users/changePassword/:userId",
@@ -277,7 +214,7 @@
 									"variable": [
 										{
 											"key": "userId",
-											"value": "-91002166",
+											"value": "34110067",
 											"description": "(Required) "
 										}
 									]
@@ -291,7 +228,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"password\": \"irure qui magna eiusmod\",\n    \"newPassword\": \"sint nulla\"\n}"
+											"raw": "{\n    \"password\": \"est culpa aliqua\",\n    \"newPassword\": \"eu Lorem\"\n}"
 										},
 										"url": {
 											"raw": "{{baseUrl}}/api/users/changePassword/:userId",
@@ -422,6 +359,69 @@
 									"body": ""
 								}
 							]
+						},
+						{
+							"name": "Soft delete user by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/disable/:userId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"disable",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "34110067",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "No Content",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/users/disable/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"users",
+												"disable",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
 						}
 					]
 				},
@@ -449,7 +449,7 @@
 											"variable": [
 												{
 													"key": "personId",
-													"value": "-91002166",
+													"value": "34110067",
 													"description": "(Required) "
 												}
 											]
@@ -504,7 +504,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"gender\": \"sint do Lorem\",\n    \"name\": \"quis\",\n    \"id\": -9895431,\n    \"birthday\": \"2014-03-19\",\n    \"address\": {\n        \"address\": \"cillum amet\",\n        \"city\": \"sint fugiat voluptate Duis\",\n        \"country\": \"ut Lorem sit\",\n        \"postalCode\": \"pariatur in sint\",\n        \"state\": \"nisi minim\",\n        \"id\": -83201102\n    },\n    \"avatar\": \"eiusmod proident commodo\",\n    \"avatarUrl\": \"amet sint\"\n}"
+											"raw": "{\n    \"birthday\": \"2012-10-11\",\n    \"gender\": \"exercitation velit\",\n    \"name\": \"enim minim Ut ex ut\",\n    \"id\": -44112329,\n    \"address\": {\n        \"address\": \"consequat\",\n        \"city\": \"occaecat sed aliquip eiusmod des\",\n        \"country\": \"consequat esse fugiat in ea\",\n        \"postalCode\": \"ad anim ut\",\n        \"state\": \"incididunt dolor tempor ut ea\",\n        \"id\": 46592401\n    },\n    \"avatar\": \"mollit id amet ex irure\",\n    \"avatarUrl\": \"aliqua quis\"\n}"
 										},
 										"url": {
 											"raw": "{{baseUrl}}/api/persons/:personId",
@@ -519,7 +519,7 @@
 											"variable": [
 												{
 													"key": "personId",
-													"value": "-91002166",
+													"value": "34110067",
 													"description": "(Required) "
 												}
 											]
@@ -533,7 +533,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"gender\": \"sint do Lorem\",\n    \"name\": \"quis\",\n    \"id\": -9895431,\n    \"birthday\": \"2014-03-19\",\n    \"address\": {\n        \"address\": \"cillum amet\",\n        \"city\": \"sint fugiat voluptate Duis\",\n        \"country\": \"ut Lorem sit\",\n        \"postalCode\": \"pariatur in sint\",\n        \"state\": \"nisi minim\",\n        \"id\": -83201102\n    },\n    \"avatar\": \"eiusmod proident commodo\",\n    \"avatarUrl\": \"amet sint\"\n}"
+													"raw": "{\n    \"birthday\": \"2012-10-11\",\n    \"gender\": \"exercitation velit\",\n    \"name\": \"enim minim Ut ex ut\",\n    \"id\": -44112329,\n    \"address\": {\n        \"address\": \"consequat\",\n        \"city\": \"occaecat sed aliquip eiusmod des\",\n        \"country\": \"consequat esse fugiat in ea\",\n        \"postalCode\": \"ad anim ut\",\n        \"state\": \"incididunt dolor tempor ut ea\",\n        \"id\": 46592401\n    },\n    \"avatar\": \"mollit id amet ex irure\",\n    \"avatarUrl\": \"aliqua quis\"\n}"
 												},
 												"url": {
 													"raw": "{{baseUrl}}/api/persons/:personId",
@@ -567,67 +567,6 @@
 									]
 								},
 								{
-									"name": "Delete person by id",
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/api/persons/:personId",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"persons",
-												":personId"
-											],
-											"variable": [
-												{
-													"key": "personId",
-													"value": "-91002166",
-													"description": "(Required) "
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"name": "No Content",
-											"originalRequest": {
-												"method": "DELETE",
-												"header": [],
-												"url": {
-													"raw": "{{baseUrl}}/api/persons/:personId",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"api",
-														"persons",
-														":personId"
-													],
-													"variable": [
-														{
-															"key": "personId"
-														}
-													]
-												}
-											},
-											"status": "No Content",
-											"code": 204,
-											"_postman_previewlanguage": "text",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/plain"
-												}
-											],
-											"cookie": [],
-											"body": ""
-										}
-									]
-								},
-								{
 									"name": "Upload person avatar",
 									"request": {
 										"method": "POST",
@@ -642,7 +581,7 @@
 											"formdata": [
 												{
 													"key": "file",
-													"value": "nostrud veniam",
+													"value": "Ut cupidatat",
 													"description": "(Required) ",
 													"type": "text"
 												}
@@ -662,7 +601,7 @@
 											"variable": [
 												{
 													"key": "personId",
-													"value": "-91002166",
+													"value": "34110067",
 													"description": "(Required) "
 												}
 											]
@@ -679,7 +618,7 @@
 													"formdata": [
 														{
 															"key": "file",
-															"value": "nostrud veniam",
+															"value": "Ut cupidatat",
 															"description": "(Required) ",
 															"type": "text"
 														}
@@ -767,66 +706,6 @@
 							]
 						},
 						{
-							"name": "Create new person",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"gender\": \"sint do Lorem\",\n    \"name\": \"quis\",\n    \"id\": -9895431,\n    \"birthday\": \"2014-03-19\",\n    \"address\": {\n        \"address\": \"cillum amet\",\n        \"city\": \"sint fugiat voluptate Duis\",\n        \"country\": \"ut Lorem sit\",\n        \"postalCode\": \"pariatur in sint\",\n        \"state\": \"nisi minim\",\n        \"id\": -83201102\n    },\n    \"avatar\": \"eiusmod proident commodo\",\n    \"avatarUrl\": \"amet sint\"\n}"
-								},
-								"url": {
-									"raw": "{{baseUrl}}/api/persons",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"api",
-										"persons"
-									]
-								}
-							},
-							"response": [
-								{
-									"name": "Created",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"gender\": \"sint do Lorem\",\n    \"name\": \"quis\",\n    \"id\": -9895431,\n    \"birthday\": \"2014-03-19\",\n    \"address\": {\n        \"address\": \"cillum amet\",\n        \"city\": \"sint fugiat voluptate Duis\",\n        \"country\": \"ut Lorem sit\",\n        \"postalCode\": \"pariatur in sint\",\n        \"state\": \"nisi minim\",\n        \"id\": -83201102\n    },\n    \"avatar\": \"eiusmod proident commodo\",\n    \"avatarUrl\": \"amet sint\"\n}"
-										},
-										"url": {
-											"raw": "{{baseUrl}}/api/persons",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"api",
-												"persons"
-											]
-										}
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "*/*"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
-						},
-						{
 							"name": "Find person by state",
 							"request": {
 								"method": "GET",
@@ -845,7 +724,7 @@
 									"variable": [
 										{
 											"key": "personState",
-											"value": "non qui",
+											"value": "irure Excepteur",
 											"description": "(Required) "
 										}
 									]
@@ -908,7 +787,7 @@
 									"variable": [
 										{
 											"key": "personCity",
-											"value": "non qui",
+											"value": "irure Excepteur",
 											"description": "(Required) "
 										}
 									]
@@ -969,7 +848,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"file\": \"nostrud veniam\"\n}"
+									"raw": "{\n    \"file\": \"Ut cupidatat\"\n}"
 								},
 								"url": {
 									"raw": "{{baseUrl}}/api/file/upload",
@@ -991,7 +870,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"file\": \"nostrud veniam\"\n}"
+											"raw": "{\n    \"file\": \"Ut cupidatat\"\n}"
 										},
 										"url": {
 											"raw": "{{baseUrl}}/api/file/upload",
@@ -1015,7 +894,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "non qui"
+									"body": "irure Excepteur"
 								}
 							]
 						},
@@ -1038,7 +917,7 @@
 									"variable": [
 										{
 											"key": "fileName",
-											"value": "non qui",
+											"value": "irure Excepteur",
 											"description": "(Required) "
 										}
 									]
@@ -1078,7 +957,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "non qui"
+									"body": "irure Excepteur"
 								}
 							]
 						}
@@ -1152,7 +1031,7 @@
 									"variable": [
 										{
 											"key": "addressId",
-											"value": "-91002166",
+											"value": "34110067",
 											"description": "(Required) "
 										}
 									]
@@ -1211,7 +1090,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"teste\",\n    \"password\": \"teste\",\n    \"email\": \"teste@gmail.com\",\n    \"person\": {\n        \"name\": \"teste\",\n        \"gender\": \"teste\",\n        \"birthday\": \"28/07/1992\",\n    \"address\": {\n        \"address\": \"teste\",\n        \"city\": \"Maceió\",\n        \"state\": \"Alagoas\",\n        \"postalCode\": \"teste\",\n        \"country\": \"Brazil\"\n    }\n    } \n}"
+					"raw": "{\n    \"email\": \"anim est nisi sed\",\n    \"password\": \"dolore quis sint Ut in\",\n    \"username\": \"est commodo\",\n    \"createdAt\": \"1994-08-14T14:46:21.037Z\",\n    \"person\": {\n        \"birthday\": \"1997-02-14\",\n        \"gender\": \"cillum\",\n        \"name\": \"amet\",\n        \"id\": -37682467,\n        \"address\": {\n            \"address\": \"ut proident reprehenderit\",\n            \"city\": \"laboris\",\n            \"country\": \"non mollit eiusmod elit\",\n            \"postalCode\": \"amet minim ad\",\n            \"state\": \"aliquip in do\",\n            \"id\": -98227186\n        },\n        \"avatar\": \"sit eu Excepteur\",\n        \"avatarUrl\": \"in aute\"\n    }\n}"
 				},
 				"url": {
 					"raw": "{{baseUrl}}/user/register",
@@ -1232,7 +1111,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"incididunt in\",\n    \"password\": \"consequat q\",\n    \"username\": \"dolor sit dolore\",\n    \"createdAt\": \"1988-11-05T10:41:45.536Z\",\n    \"person\": {\n        \"gender\": \"sint reprehenderit\",\n        \"name\": \"cupidatat esse nostrud nisi\",\n        \"id\": -5483201,\n        \"birthday\": \"1993-08-23\",\n        \"address\": {\n            \"address\": \"pariatur fugiat tempor qui\",\n            \"city\": \"dolor consectetur\",\n            \"country\": \"laborum voluptate ad in\",\n            \"postalCode\": \"nostrud Lorem nulla\",\n            \"state\": \"nostrud velit ad tempor Duis\",\n            \"id\": 77935679\n        },\n        \"avatar\": \"aliquip culpa Duis\",\n        \"avatarUrl\": \"sed consectetur dolore\"\n    }\n}"
+							"raw": "{\n    \"email\": \"anim est nisi sed\",\n    \"password\": \"dolore quis sint Ut in\",\n    \"username\": \"est commodo\",\n    \"createdAt\": \"1994-08-14T14:46:21.037Z\",\n    \"person\": {\n        \"birthday\": \"1997-02-14\",\n        \"gender\": \"cillum\",\n        \"name\": \"amet\",\n        \"id\": -37682467,\n        \"address\": {\n            \"address\": \"ut proident reprehenderit\",\n            \"city\": \"laboris\",\n            \"country\": \"non mollit eiusmod elit\",\n            \"postalCode\": \"amet minim ad\",\n            \"state\": \"aliquip in do\",\n            \"id\": -98227186\n        },\n        \"avatar\": \"sit eu Excepteur\",\n        \"avatarUrl\": \"in aute\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/user/register",
@@ -1271,7 +1150,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"teste\",\n    \"password\": \"teste\"\n}"
+					"raw": "{\n    \"username\": \"labore irure\",\n    \"password\": \"eiusmod anim laboris cupidatat\"\n}"
 				},
 				"url": {
 					"raw": "{{baseUrl}}/authenticate",
@@ -1291,7 +1170,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"tempor sed culpa\",\n    \"password\": \"nulla\"\n}"
+							"raw": "{\n    \"username\": \"labore irure\",\n    \"password\": \"eiusmod anim laboris cupidatat\"\n}"
 						},
 						"url": {
 							"raw": "{{baseUrl}}/authenticate",
@@ -1313,7 +1192,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "non qui"
+					"body": "irure Excepteur"
 				}
 			]
 		}
