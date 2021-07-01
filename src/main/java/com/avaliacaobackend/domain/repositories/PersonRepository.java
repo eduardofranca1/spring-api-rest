@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PersonRepository extends JpaRepository<Person, Long> {
+public interface PersonRepository extends JpaRepository<Person, String> {
 
     List<Person> findAllByAddressCity(String city);
     List<Person> findAllByAddressState(String State);

@@ -18,7 +18,7 @@ public class UpdatePersonService {
     private final PersonRepository personRepository;
     private final StorageService storageService;
 
-    public void changeAvatar(Long personId, MultipartFile file) {
+    public void changeAvatar(String personId, MultipartFile file) {
 
         Person person = personRepository.findById(personId).orElseThrow();
 
@@ -37,7 +37,7 @@ public class UpdatePersonService {
 
     }
 
-    public Person update(Long personId, Person person) {
+    public Person update(String personId, Person person) {
 
         Person personDB = personRepository.findById(personId).orElseThrow(() -> {
             throw new ResourceNotFoundException("Person does not found, please insert the correct ID.");

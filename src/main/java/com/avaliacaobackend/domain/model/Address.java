@@ -1,5 +1,6 @@
 package com.avaliacaobackend.domain.model;
 
+import com.avaliacaobackend.domain.utils.StringUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,9 +21,8 @@ public class Address implements Serializable {
 
     @EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_address")
-    private Long id;
+    private String id;
 
     @NotEmpty(message = "{address.notempty}")
     private String address;
@@ -52,6 +52,9 @@ public class Address implements Serializable {
     private void preUpdate() { this.updatedAt = LocalDateTime.now(); }
 
     @PrePersist
-    private void prePersist() { this.createdAt = LocalDateTime.now(); }
+    private void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        this.id = StringUtils.uuid();
+    }
 
 }

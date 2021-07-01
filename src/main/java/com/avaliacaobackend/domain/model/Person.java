@@ -1,5 +1,6 @@
 package com.avaliacaobackend.domain.model;
 
+import com.avaliacaobackend.domain.utils.StringUtils;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -27,9 +28,8 @@ public class Person implements Serializable {
 
     @EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_person")
-    private Long id;
+    private String id;
 
     @NotEmpty(message = "{name.notempty}")
     private String name;
@@ -80,6 +80,9 @@ public class Person implements Serializable {
     }
 
     @PrePersist
-    private void prePersist() { this.createdAt = LocalDateTime.now(); }
+    private void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        this.id = StringUtils.uuid();
+    }
 
 }

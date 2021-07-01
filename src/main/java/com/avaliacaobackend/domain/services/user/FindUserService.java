@@ -12,8 +12,8 @@ public class FindUserService {
 
     private final UserRepository userRepository;
 
-    public User getById(Long userId) {
+    public User getById(String userId) {
         return userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User does not found."));
+                .orElseThrow(() -> new ResourceNotFoundException("User does not found, please insert the correct ID."));
     }
 }

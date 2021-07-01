@@ -12,7 +12,7 @@ public class AddressService {
     @Autowired
     private AddressRepository addressRepository;
 
-    public Address getById(Long addressId) {
+    public Address getById(String addressId) {
         return addressRepository.findById(addressId)
                 .orElseThrow(() -> new ResourceNotFoundException("Address does not exists, please insert the correct ID."));
     }

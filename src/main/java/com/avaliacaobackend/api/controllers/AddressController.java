@@ -28,6 +28,6 @@ public class AddressController {
 
     @Operation(summary = "Find address by id")
     @GetMapping("/{addressId}")
-    public Address getById(@PathVariable Long addressId) { return addressService.getById(addressId); }
+    public Address getById(@PathVariable String addressId) { return addressService.getById(addressId); }
 
 }

@@ -43,19 +43,19 @@ public class PersonController {
 
     @Operation(summary = "Find person by id")
     @GetMapping("/{personId}")
-    public Person getById(@PathVariable Long personId) {
+    public Person getById(@PathVariable String personId) {
         return findPersonService.getById(personId);
     }
 
     @Operation(summary = "Update person")
     @PutMapping("/{personId}")
-    public ResponseEntity<Person> update(@PathVariable Long personId, @Valid @RequestBody Person person) {
+    public ResponseEntity<Person> update(@PathVariable String personId, @Valid @RequestBody Person person) {
         return ResponseEntity.ok(updatePersonService.update(personId, person));
     }
 
     @Operation(summary = "Upload person avatar")
     @PostMapping(value = "/{personId}/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public void create(@PathVariable Long personId, @RequestParam("file") MultipartFile file) {
+    public void create(@PathVariable String personId, @RequestParam("file") MultipartFile file) {
         updatePersonService.changeAvatar(personId, file);
     }
 

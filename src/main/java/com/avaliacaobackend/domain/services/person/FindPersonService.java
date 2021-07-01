@@ -12,7 +12,7 @@ public class FindPersonService {
 
     private final PersonRepository personRepository;
 
-    public Person getById(Long personId) {
+    public Person getById(String personId) {
         return personRepository.findById(personId)
                 .orElseThrow(() -> new ResourceNotFoundException("Person does not found, please insert the correct ID."));
     }

@@ -29,7 +29,7 @@ public class UserController {
 
     @Operation(summary = "Find user by id")
     @GetMapping("/{userId}")
-    public UserResponseDTO getById(@PathVariable Long userId) {
+    public UserResponseDTO getById(@PathVariable String userId) {
         return UserMapper.toResponseDTO(findUserService.getById(userId));
     }
 
@@ -51,7 +51,7 @@ public class UserController {
 
     @Operation(summary = "Change user password by your id")
     @PutMapping("/changePassword/{userId}")
-    public ResponseEntity<Boolean> changePassword(@RequestBody PasswordDTO passwordDTO, @PathVariable Long userId) {
+    public ResponseEntity<Boolean> changePassword(@RequestBody PasswordDTO passwordDTO, @PathVariable String userId) {
 
         return changePasswordService.changePassword(passwordDTO, userId) ? ResponseEntity.noContent().build() : ResponseEntity.badRequest().build();
 
@@ -60,12 +60,12 @@ public class UserController {
     @Operation(summary = "Soft delete user by id")
     @DeleteMapping("/disable/{userId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(@PathVariable Long userId) {
+    public void deleteById(@PathVariable String userId) {
         deleteUserService.softDelete(userId);
     }
 
     @Operation(summary = "Delete user by id")
     @DeleteMapping("/{userId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long userId) { deleteUserService.delete(userId); }
+    public void delete(@PathVariable String userId) { deleteUserService.delete(userId); }
 }

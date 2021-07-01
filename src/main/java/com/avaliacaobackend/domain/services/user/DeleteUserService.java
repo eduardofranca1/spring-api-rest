@@ -13,9 +13,16 @@ public class DeleteUserService {
     private final UserRepository userRepository;
 
     @Transactional
-    public void softDelete(Long userId) { userRepository.softDelete(userId); }
+    public void softDelete(String userId) {
 
-    public void delete(Long userId) {
+        if(!userRepository.existsById(userId)) {
+            throw new ResourceNotFoundException("Wrong person code, please insert the correct ID.");
+        }
+
+        userRepository.softDelete(userId);
+    }
+
+    public void delete(String userId) {
 
         if(!userRepository.existsById(userId)) {
             throw new ResourceNotFoundException("Wrong person code, please insert the correct ID.");

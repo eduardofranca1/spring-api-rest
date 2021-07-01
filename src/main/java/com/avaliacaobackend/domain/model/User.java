@@ -1,5 +1,6 @@
 package com.avaliacaobackend.domain.model;
 
+import com.avaliacaobackend.domain.utils.StringUtils;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,9 +20,8 @@ public class User implements Serializable {
 
     @EqualsAndHashCode.Include
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_user")
-    private Long id;
+    private String id;
 
     @EqualsAndHashCode.Include
     @Column(unique = true)
@@ -59,8 +59,9 @@ public class User implements Serializable {
 
     @PrePersist
     private void created() {
-        this.password = new BCryptPasswordEncoder().encode(password);
+        this.id = StringUtils.uuid();
         this.createdAt = LocalDateTime.now();
+        this.password = new BCryptPasswordEncoder().encode(password);
     }
 
 }

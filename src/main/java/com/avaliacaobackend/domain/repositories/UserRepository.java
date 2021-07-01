@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, String> {
 
     User findByUsername(String username);
 
@@ -22,7 +22,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("UPDATE User u SET u.deleted=true where u.id=?1")
     @Modifying
-    void softDelete(Long id);
+    void softDelete(String id);
 
 //     others examples for soft delete
 //

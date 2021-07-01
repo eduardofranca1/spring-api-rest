@@ -14,7 +14,7 @@ public class ChangePasswordUserService {
     private final UserRepository userRepository;
     private final static BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public boolean changePassword(PasswordDTO passwordDTO, Long userId) {
+    public boolean changePassword(PasswordDTO passwordDTO, String userId) {
 
         var user = findUserService.getById(userId);
 
