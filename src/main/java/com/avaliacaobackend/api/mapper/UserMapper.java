@@ -21,8 +21,4 @@ public class UserMapper {
                 .collect(Collectors.toList());
     }
 
-//    public static UserRequestDTO toRequestDTO (User user) { return modelMapper.map(user, UserRequestDTO.class); }
-//
-//    public static User fromRequestDTO (UserRequestDTO user) { return modelMapper.map(user, User.class); }
-
 }

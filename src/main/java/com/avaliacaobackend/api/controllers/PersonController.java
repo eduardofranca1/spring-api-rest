@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Tag(name = "Person endpoint")
@@ -48,7 +49,7 @@ public class PersonController {
 
     @Operation(summary = "Update person")
     @PutMapping("/{personId}")
-    public ResponseEntity<Person> update(@PathVariable Long personId, @RequestBody Person person) {
+    public ResponseEntity<Person> update(@PathVariable Long personId, @Valid @RequestBody Person person) {
         return ResponseEntity.ok(updatePersonService.update(personId, person));
     }
 
