@@ -1,11 +1,11 @@
 create table tb_users (
-    cod_user varchar(255) primary key not null,
+    cod_user varchar(255) primary key,
     username varchar(40) not null,
     email varchar(255) not null,
     password varchar(255) not null,
     deleted boolean,
-    created_at timestamp default now(),
-    updated_at timestamp default now(),
+    created_at datetime default now(),
+    updated_at datetime,
 
     unique key uk_username (username),
     unique key uk_email (email),
