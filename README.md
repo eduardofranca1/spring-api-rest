@@ -40,16 +40,27 @@ Projeto para avalição de backend
 
 ## Como posso testar os endpoints?
 
-Abra sua IDEA de preferência
+Abra sua IDEA de preferência:
 
-O maven irá baixar as dependências e depois disso abra a classe WsAvaliacaoApplication clicando na opção Run
+- O maven irá baixar as dependências
+- Abra a classe WsAvaliacaoApplication clicando na opção Run 
+- Ou se você tiver o Maven instalado, você pode usar o comando: **mvn spring-boot:run** no seu console
 
 Você pode usar [Insomnia](https://insomnia.rest/) ou [Postman](https://www.postman.com/) para checar os endpoints
 
 Para usar a api é necessário: 
 
-1. Primeiro criar um novo usuário
+1. Primeiro criar um novo usuário na rota: http://localhost:8080/user/register
 
-2. Fazer autenticação com username e password para poder acessar outros endpoints
+   ![create user](C:\Users\Dudu\Desktop\create user.png)
+
+2. Fazer autenticação com username e password na rota: http://localhost:8080/authenticate  para poder acessar outros endpoints:
+
+   
+
+   ![autenticate](C:\Users\Dudu\Desktop\autenticate.png)
+
+   
 
 3. Utilizar o token gerado para poder acessar outros endpoints
+
