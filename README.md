@@ -51,16 +51,6 @@ Você pode usar [Insomnia](https://insomnia.rest/) ou [Postman](https://www.post
 Para usar a api é necessário: 
 
 1. Primeiro criar um novo usuário na rota: http://localhost:8080/user/register
-
-   ![create user](C:\Users\Dudu\Desktop\create user.png)
-
 2. Fazer autenticação com username e password na rota: http://localhost:8080/authenticate  para poder acessar outros endpoints:
-
-   
-
-   ![autenticate](C:\Users\Dudu\Desktop\autenticate.png)
-
-   
-
-3. Utilizar o token gerado para poder acessar outros endpoints
+3. Utilizar o token gerado para poder acessar outros endpoint
 
