@@ -43,7 +43,6 @@ public class UpdatePersonService {
             throw new ResourceNotFoundException("Person does not found, please insert the correct ID.");
         });
 
-        // para ignorar os atributos passados em " " na hora de fazer o update em Person
         BeanUtils.copyProperties(person, personDB, "id", "avatar", "address", "createdAt", "updatedAt");
         BeanUtils.copyProperties(person.getAddress(), personDB.getAddress(), "id", "createdAt", "updatedAt");
 
