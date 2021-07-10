@@ -2,16 +2,11 @@ package com.avaliacaobackend.api.mapper;
 
 import com.avaliacaobackend.api.dto.UserResponseDTO;
 import com.avaliacaobackend.domain.model.User;
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
 public class UserMapper {
-
-    private static ModelMapper modelMapper;
 
     public static UserResponseDTO toResponseDTO (User user) { return new UserResponseDTO(user); }
 
