@@ -23,7 +23,7 @@ Projeto para avalição de backend
 - Conversão automática de DTO para Entidade
 - Mensagens de exceções personalizadas
 - JWT - JSON Web Token para autenticação do usuário
-- Upload de imagens no Amazon S3 (é necessário inserir suas credenciais da Amazon em application.yml!)
+- Upload de imagens no Amazon S3 (é necessário inserir suas credenciais da Amazon em application.yml)
 - Flyway para o controle e versionamento de dados e tabelas no banco de dados
 - Open API para documentação da API
 
@@ -51,6 +51,12 @@ Você pode usar [Insomnia](https://insomnia.rest/) ou [Postman](https://www.post
 Para usar a api é necessário: 
 
 1. Primeiro criar um novo usuário na rota: http://localhost:8080/user/register
+
+![create user](https://user-images.githubusercontent.com/18031693/125149556-07b59880-e110-11eb-9b03-72acc87b87a9.png)
+
 2. Fazer autenticação com username e password na rota: http://localhost:8080/authenticate  para poder acessar outros endpoints:
+
+![authenticate](https://user-images.githubusercontent.com/18031693/125149593-3a5f9100-e110-11eb-8478-65024087c591.png)
+
 3. Utilizar o token gerado para poder acessar outros endpoints
 
