@@ -30,13 +30,13 @@ public class PersonController {
     public List<Person> getAll() { return personRepository.findAll(); }
 
     @Operation(summary = "Find person by city")
-    @GetMapping("/{personCity}/city")
+    @GetMapping("/city/{personCity}")
     public List<Person> getByCity(@PathVariable String personCity) {
         return personRepository.findAllByAddressCity(personCity);
     }
 
     @Operation(summary = "Find person by state")
-    @GetMapping("/{personState}/state")
+    @GetMapping("/state/{personState}")
     public List<Person> getByState(@PathVariable String personState) {
         return personRepository.findAllByAddressState(personState);
     }
