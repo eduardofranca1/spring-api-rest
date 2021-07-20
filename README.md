@@ -1,7 +1,5 @@
 # Spring RESTful API
 
-Projeto para avalição de backend
-
 ## Tecnologias:
 
 - [Java 11](https://docs.oracle.com/en/java/javase/11/)
