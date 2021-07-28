@@ -2,11 +2,11 @@ package com.avaliacaobackend.api.controllers;
 
 import com.avaliacaobackend.api.dto.PasswordDTO;
 import com.avaliacaobackend.api.dto.UserResponseDTO;
-import com.avaliacaobackend.api.mapper.UserMapper;
+import com.avaliacaobackend.api.dto.mapper.UserMapper;
 import com.avaliacaobackend.domain.repositories.UserRepository;
 import com.avaliacaobackend.domain.services.user.ChangePasswordUserService;
-import com.avaliacaobackend.domain.services.user.FindUserService;
 import com.avaliacaobackend.domain.services.user.DeleteUserService;
+import com.avaliacaobackend.domain.services.user.FindUserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;

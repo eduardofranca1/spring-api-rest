@@ -10,7 +10,6 @@
 - [JWT](https://jwt.io/)
 - [Amazon S3](https://aws.amazon.com/pt/s3/)
 - [Lombok](https://projectlombok.org/)
-- [ModelMapper](http://modelmapper.org/)
 - [MySQL](https://www.mysql.com/)
 - [Flyway Migration](https://flywaydb.org/documentation/concepts/migrations)
 - [OpenAPI | Swagger](https://swagger.io/specification/)

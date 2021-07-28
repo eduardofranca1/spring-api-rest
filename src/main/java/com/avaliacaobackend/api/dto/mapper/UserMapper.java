@@ -1,4 +1,4 @@
-package com.avaliacaobackend.api.mapper;
+package com.avaliacaobackend.api.dto.mapper;
 
 import com.avaliacaobackend.api.dto.UserResponseDTO;
 import com.avaliacaobackend.domain.model.User;
