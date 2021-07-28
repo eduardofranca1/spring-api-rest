@@ -25,7 +25,6 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "tb_persons")
 public class Person implements Serializable {
-    private static final long serialVersionUID = 1L;
 
     @EqualsAndHashCode.Include
     @Id
@@ -56,16 +55,6 @@ public class Person implements Serializable {
     private Address address;
 
     private String avatar;
-
-    public Person() { }
-
-    public Person (String name, Gender gender, LocalDate birthday, LocalDateTime createdAt, Address address) {
-        this.name = name;
-        this.gender = gender;
-        this.birthday = birthday;
-        this.createdAt = createdAt;
-        this.address = address;
-    }
 
     public String getAvatarUrl() {
 

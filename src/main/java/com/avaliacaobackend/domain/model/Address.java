@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "tb_address")
 public class Address implements Serializable {
-    public static final long serialVersionUID = 1L;
 
     @EqualsAndHashCode.Include
     @Id

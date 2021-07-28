@@ -1,15 +1,15 @@
-create table tb_users (
-    cod_user varchar(255) primary key,
-    username varchar(40) not null,
-    email varchar(255) not null,
-    password varchar(255) not null,
-    deleted boolean,
-    created_at datetime default now(),
-    updated_at datetime,
+CREATE TABLE IF NOT EXISTS tb_users (
+    cod_user VARCHAR(255) PRIMARY KEY,
+    username VARCHAR(40) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    deleted BOOLEAN,
+    created_at DATETIME default now(),
+    updated_at DATETIME,
 
     unique key uk_username (username),
     unique key uk_email (email),
 
-    fk_person varchar(255) not null,
-    foreign key(fk_person) references tb_persons(cod_person)
+    fk_person VARCHAR(255) NOT NULL,
+    FOREIGN KEY (fk_person) REFERENCES tb_persons(cod_person)
 );

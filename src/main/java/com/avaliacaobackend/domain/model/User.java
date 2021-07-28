@@ -3,6 +3,7 @@ package com.avaliacaobackend.domain.model;
 import com.avaliacaobackend.domain.utils.StringUtils;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -13,17 +14,16 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@NoArgsConstructor
 @Entity
 @Table(name = "tb_users")
 public class User implements Serializable {
-    private static final long serialVersionUID = 1L;
 
     @EqualsAndHashCode.Include
     @Id
     @Column(name = "cod_user")
     private String id;
 
-    @EqualsAndHashCode.Include
     @Column(unique = true)
     private String username;
 
@@ -43,8 +43,6 @@ public class User implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_person", unique = true)
     private Person person;
-
-    public User() { }
 
     public User(String username, String email, String password, LocalDateTime createdAt, Person person) {
         this.username = username;

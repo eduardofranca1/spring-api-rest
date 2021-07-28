@@ -1,12 +1,12 @@
-create table tb_persons (
-    cod_person varchar(255) primary key,
-    name varchar(255) not null,
-    gender varchar(10) not null,
-    birthday date not null,
-    avatar varchar(255),
-    created_at datetime default now(),
-    updated_at datetime,
+CREATE TABLE IF NOT EXISTS  tb_persons (
+    cod_person VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    birthday DATE NOT NULL,
+    avatar VARCHAR(255),
+    created_at DATETIME default now(),
+    updated_at DATETIME,
 
-    fk_address varchar(255) not null,
-    foreign key (fk_address) references tb_address(cod_address)
+    fk_address VARCHAR(255) NOT NULL,
+    FOREIGN KEY (fk_address) REFERENCES tb_address(cod_address)
 );
