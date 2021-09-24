@@ -34,6 +34,7 @@ public class Person implements Serializable {
     private String name;
 
     @Column
+    @NotEmpty(message = "{gender.notempty}")
     private String gender;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
