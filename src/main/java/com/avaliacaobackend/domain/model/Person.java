@@ -1,6 +1,5 @@
 package com.avaliacaobackend.domain.model;
 
-import com.avaliacaobackend.domain.model.enums.Gender;
 import com.avaliacaobackend.domain.utils.StringUtils;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -34,8 +33,8 @@ public class Person implements Serializable {
     @NotEmpty(message = "{name.notempty}")
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
+    @Column
+    private String gender;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     @NotNull(message = "{birthday.notnull}")
